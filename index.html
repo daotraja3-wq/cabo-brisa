@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta name="google-site-verification" content="80BkXAkckJ2zFSXtzzmeLa8WF_8ullDGw26ah4QLAik" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0E0618">
+<title>Cabo Brisa — maconha e cocaína · Cabo Frio</title>
+<meta name="description" content="Maconha e cocaína entregues na sua porta em Cabo Frio. Pedido pelo site, pagamento no Pix e código de entrega.">
+<meta property="og:title" content="Cabo Brisa — maconha e cocaína">
+<meta property="og:description" content="Delivery de maconha e cocaína em Cabo Frio. Pix, entrega na porta.">
+<meta property="og:type" content="website">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+  --fundo: #0E0618;
+  --roxo: #1A0B2B;
+  --roxo-2: #24103A;
+  --roxo-3: #3A1F55;
+  --neon: #B8F04A;
+  --neon-2: #8FE01F;
+  --texto: #D9E9C9;
+  --suave: #A3BA92;
+  --coral: #FF6A45;
+}
+
+body {
+  font-family: "Space Grotesk", system-ui, Arial, sans-serif;
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.55;
+  padding-bottom: 96px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { margin: 0; }
+
+::selection { background: var(--neon); color: var(--fundo); }
+
+button:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+}
+
+.led {
+  color: var(--neon);
+  text-shadow:
+    0 0 5px rgba(184,240,74,.85),
+    0 0 16px rgba(184,240,74,.5),
+    0 0 38px rgba(184,240,74,.28);
+}
+
+.grao {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: .05;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  background: var(--roxo);
+  border-bottom: 2px solid var(--neon);
+  box-shadow: 0 0 18px rgba(184,240,74,.28);
+  overflow: hidden;
+  padding: 8px 0;
+}
+
+.marquee div {
+  display: flex;
+  gap: 26px;
+  white-space: nowrap;
+  width: max-content;
+  animation: rolar 24s linear infinite;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--neon);
+  text-shadow: 0 0 8px rgba(184,240,74,.75);
+}
+
+@keyframes rolar { to { transform: translateX(-50%); } }
+
+/* ---------- Hero ---------- */
+header {
+  position: relative;
+  padding: 34px 22px 0;
+  overflow: hidden;
+  border-bottom: 2px solid var(--neon);
+  background:
+    radial-gradient(80% 70% at 8% -10%, rgba(91,42,133,.55), transparent 62%),
+    radial-gradient(70% 60% at 100% 10%, rgba(143,224,31,.12), transparent 60%);
+}
+
+.hero-grade {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 18px;
+  align-items: end;
+}
+
+.etiquetas { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+
+.etq {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 2px solid var(--neon);
+  color: var(--neon);
+  box-shadow: 0 0 10px rgba(184,240,74,.3), inset 0 0 10px rgba(184,240,74,.12);
+}
+
+.etq.cheia { background: var(--neon); color: var(--fundo); text-shadow: none; }
+
+h1 {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(52px, 11vw, 118px);
+  text-transform: uppercase;
+  line-height: .84;
+  letter-spacing: -.02em;
+  margin: 0 0 6px;
+  color: var(--neon);
+  text-shadow:
+    0 0 6px rgba(184,240,74,.9),
+    0 0 22px rgba(184,240,74,.55),
+    0 0 56px rgba(184,240,74,.3);
+}
+
+h1 span { display: block; color: var(--texto); text-shadow: 0 0 20px rgba(217,233,201,.35); }
+
+header .chamada {
+  font-size: clamp(15px, 2.2vw, 19px);
+  max-width: 34ch;
+  margin: 22px 0 0;
+  color: var(--texto);
+}
+
+header .chamada b { color: var(--neon); text-shadow: 0 0 10px rgba(184,240,74,.6); }
+
+.hero-cta {
+  display: inline-block;
+  margin: 24px 0 34px;
+  background: var(--neon);
+  color: var(--fundo);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 15px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 0 16px rgba(184,240,74,.6), 0 0 40px rgba(184,240,74,.25);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 0 22px rgba(184,240,74,.85), 0 0 60px rgba(184,240,74,.4); }
+
+/* ---------- Logo ---------- */
+.cacto-hero {
+  align-self: end;
+  justify-self: center;
+  width: 100%;
+  max-width: 230px;
+  margin-bottom: 30px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid var(--neon);
+  box-shadow: 0 0 0 1px rgba(184,240,74,.25), 0 0 34px rgba(184,240,74,.4), 0 0 80px rgba(255,106,69,.18);
+  background: #6E6E6E;
+}
+
+.cacto-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  display: block;
+}
+
+/* ---------- Aviso ---------- */
+.aviso {
+  background: var(--roxo-2);
+  border-bottom: 2px solid var(--neon);
+  text-align: center;
+  padding: 12px 18px;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--neon);
+  text-shadow: 0 0 8px rgba(184,240,74,.6);
+}
+
+/* ---------- Seções ---------- */
+main { padding: 0 20px; }
+.secao { max-width: 1120px; margin: 0 auto; }
+
+.topo-secao { padding: 56px 0 26px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+
+.topo-secao h2 {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(30px, 5.5vw, 52px);
+  text-transform: uppercase;
+}
+
+.topo-secao p { margin: 0; font-size: 14px; color: var(--suave); max-width: 46ch; }
+
+/* ---------- Produtos ---------- */
+.produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; padding-bottom: 8px; }
+
+.card {
+  background: var(--roxo);
+  border: 2px solid var(--roxo-3);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon);
+  box-shadow: 0 0 0 1px rgba(184,240,74,.35), 0 0 30px rgba(184,240,74,.22);
+}
+
+.card-topo {
+  position: relative;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  line-height: 1;
+  background: var(--roxo-2);
+  border-bottom: 2px solid var(--roxo-3);
+}
+
+.selo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: transparent;
+  color: var(--neon);
+  border: 2px solid var(--neon);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  transform: rotate(-3deg);
+  text-shadow: 0 0 8px rgba(184,240,74,.7);
+}
+
+.dose-tag {
+  position: absolute;
+  bottom: -13px;
+  right: 14px;
+  background: var(--coral);
+  color: #14060A;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 12px;
+  letter-spacing: .06em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  transform: rotate(3deg);
+  box-shadow: 0 0 16px rgba(255,106,69,.45);
+}
+
+.corpo { padding: 26px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+
+.corpo h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.12;
+  color: var(--neon);
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(184,240,74,.45);
+}
+
+.spec { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); margin: 0 0 12px; font-weight: 700; }
+.desc { font-size: 14px; color: var(--texto); margin: 0 0 18px; }
+
+.linha-preco { display: flex; align-items: center; gap: 10px; margin: auto 0 14px; }
+
+.preco {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 34px;
+  color: var(--neon);
+  text-shadow: 0 0 8px rgba(184,240,74,.75), 0 0 24px rgba(184,240,74,.4);
+}
+
+.por-grama { font-size: 11px; color: var(--suave); line-height: 1.2; }
+
+.card button, .kit button {
+  width: 100%;
+  background: transparent;
+  color: var(--neon);
+  border: 2px solid var(--neon);
+  padding: 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.card button:hover, .kit button:hover {
+  background: var(--neon);
+  color: var(--fundo);
+  box-shadow: 0 0 22px rgba(184,240,74,.6);
+}
+
+/* ---------- Como ler ---------- */
+.comoLer {
+  background: var(--roxo-2);
+  border: 2px solid var(--neon);
+  border-radius: 20px;
+  padding: 30px 26px;
+  margin-top: 44px;
+  box-shadow: inset 0 0 40px rgba(184,240,74,.07);
+}
+
+.comoLer h3 { font-family: "Anton", Impact, sans-serif; font-size: 24px; text-transform: uppercase; color: var(--neon); text-shadow: 0 0 12px rgba(184,240,74,.6); margin-bottom: 6px; }
+.comoLer > p { font-size: 14px; color: var(--texto); margin: 0 0 22px; }
+
+.grade-ler { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+
+.item-ler { border-left: 2px solid var(--neon); padding-left: 14px; }
+.item-ler strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--neon); margin-bottom: 4px; }
+.item-ler span { font-size: 13px; color: var(--texto); }
+
+/* ---------- Kits ---------- */
+.kits { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+
+.kit {
+  background: var(--roxo);
+  border: 2px solid var(--roxo-3);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.kit:hover { border-color: var(--neon); box-shadow: 0 0 26px rgba(184,240,74,.2); }
+
+.kit .economia {
+  align-self: flex-start;
+  background: var(--neon);
+  color: var(--fundo);
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.kit h4 { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 23px; color: var(--neon); margin-bottom: 6px; text-shadow: 0 0 12px rgba(184,240,74,.4); }
+.kit p { font-size: 13px; color: var(--texto); margin: 0 0 16px; }
+.kit .valor { margin: auto 0 14px; font-size: 12px; color: var(--suave); }
+.kit .valor s { opacity: .7; }
+.kit .valor b { display: block; font-family: "Anton", Impact, sans-serif; font-size: 30px; color: var(--neon); font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
+
+/* ---------- Passos ---------- */
+.passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; padding-bottom: 8px; }
+.passo { border-top: 2px solid var(--roxo-3); padding-top: 14px; }
+.passo .num { font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .14em; color: var(--coral); }
+.passo h4 { font-family: "Anton", Impact, sans-serif; font-size: 17px; text-transform: uppercase; color: var(--neon); margin: 4px 0 6px; }
+.passo p { font-size: 14px; color: var(--texto); margin: 0; }
+
+/* ---------- Ficha ---------- */
+.ficha { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; padding-bottom: 10px; }
+.ficha h3 { font-family: "Anton", Impact, sans-serif; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--neon); margin-bottom: 6px; }
+.ficha p { font-size: 14px; color: var(--texto); margin: 0; }
+.ficha p b { color: var(--coral); }
+
+.nota {
+  grid-column: 1 / -1;
+  border: 2px solid var(--neon);
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--texto);
+  background: rgba(184,240,74,.06);
+}
+.nota b { color: var(--neon); }
+
+/* ---------- Carrinho ---------- */
+#carrinho {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--roxo);
+  border-top: 2px solid var(--neon);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -14px 40px -14px rgba(0,0,0,.8);
+  z-index: 20;
+  overflow-y: auto;
+  max-height: 88vh;
+}
+
+.barra {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; background: var(--roxo-2); color: var(--texto);
+  border: none; border-bottom: 2px solid var(--roxo-3); padding: 15px 18px; border-radius: 18px 18px 0 0;
+  cursor: pointer; font-family: "Anton", Impact, sans-serif; font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase; text-align: left;
+}
+
+.barra .acao { color: var(--neon); white-space: nowrap; text-shadow: 0 0 8px rgba(184,240,74,.7); }
+
+.painel { display: none; padding: 18px; }
+#carrinho.aberto .painel { display: block; }
+
+.topo-carrinho { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+#carrinho h4 { font-family: "Anton", Impact, sans-serif; font-size: 19px; text-transform: uppercase; color: var(--neon); }
+
+.limpar { background: none; border: none; color: var(--suave); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; text-decoration: underline; padding: 0; font-family: inherit; }
+.limpar:hover { color: var(--coral); }
+
+#itens { margin-bottom: 14px; }
+.vazio { margin: 0; padding: 14px 0; color: var(--texto); font-size: 14px; }
+.vazio span { display: block; font-size: 13px; color: var(--suave); }
+
+.item { display: flex; flex-direction: column; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--roxo-3); font-size: 14px; }
+.item:last-child { border-bottom: 0; }
+.item-nome { color: var(--texto); font-weight: 700; }
+.item-linha { display: flex; align-items: center; gap: 10px; }
+
+.qtd { display: flex; align-items: center; border: 2px solid var(--roxo-3); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+.qtd button { background: var(--roxo-2); border: none; color: var(--neon); width: 26px; height: 26px; font-size: 14px; line-height: 1; cursor: pointer; padding: 0; }
+.qtd button:hover { background: var(--neon); color: var(--fundo); }
+.qtd span { min-width: 22px; text-align: center; font-size: 13px; font-weight: 700; color: var(--texto); }
+
+.item-preco { margin-left: auto; color: var(--neon); font-weight: 700; white-space: nowrap; }
+
+.remover { background: var(--roxo-2); border: 2px solid var(--roxo-3); color: var(--suave); width: 24px; height: 24px; border-radius: 50%; cursor: pointer; font-size: 11px; line-height: 1; padding: 0; flex-shrink: 0; }
+.remover:hover { background: var(--coral); color: #14060A; border-color: var(--coral); }
+
+.linhas { border-top: 1px solid var(--roxo-3); padding-top: 12px; margin-bottom: 14px; font-size: 14px; color: var(--texto); }
+.linhas .l { display: flex; justify-content: space-between; padding: 3px 0; }
+.linhas .total { border-top: 2px dashed var(--roxo-3); margin-top: 8px; padding-top: 9px; align-items: baseline; }
+.linhas .total b { font-family: "Anton", Impact, sans-serif; font-size: 24px; color: var(--neon); font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
+.gratis { color: var(--neon); font-weight: 700; }
+
+.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.campo { width: 100%; padding: 11px 13px; border-radius: 10px; border: 2px solid var(--roxo-3); background: var(--fundo); font-family: inherit; font-size: 14px; color: var(--texto); }
+.campo::placeholder { color: #7B8C6D; }
+.campo:focus { outline: none; border-color: var(--neon); box-shadow: 0 0 12px rgba(184,240,74,.25); }
+.campo.largo { grid-column: 1 / -1; margin-bottom: 12px; }
+
+.botao-pedido {
+  width: 100%; background: var(--neon); border: none; padding: 13px; border-radius: 999px;
+  color: var(--fundo); font-family: "Anton", Impact, sans-serif; font-size: 14px; letter-spacing: .1em;
+  text-transform: uppercase; cursor: pointer;
+  box-shadow: 0 0 16px rgba(184,240,74,.5);
+  transition: box-shadow .2s ease, transform .18s ease;
+}
+.botao-pedido:hover { box-shadow: 0 0 28px rgba(184,240,74,.85); transform: translateY(-1px); }
+
+.pix { margin: 12px 0 0; font-size: 12px; color: var(--suave); text-align: center; }
+
+#confirmacao { display: none; margin-top: 16px; border: 2px solid var(--neon); background: rgba(184,240,74,.07); border-radius: 14px; padding: 16px; }
+#confirmacao.mostrar { display: block; }
+#confirmacao .titulo-conf { font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--neon); margin: 0 0 8px; }
+.codigo { font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: .14em; color: var(--neon); text-align: center; padding: 10px; background: var(--fundo); border: 2px dashed var(--neon); border-radius: 10px; margin-bottom: 10px; text-shadow: 0 0 14px rgba(184,240,74,.8); }
+#confirmacao .instrucao { font-size: 12px; color: var(--texto); margin: 0 0 12px; text-align: center; }
+.botao-entregador { width: 100%; background: transparent; border: 2px solid var(--neon); padding: 12px; border-radius: 999px; color: var(--neon); font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.botao-entregador:hover { background: var(--neon); color: var(--fundo); }
+
+/* ---------- Rodapé ---------- */
+.rodape { margin-top: 64px; background: var(--roxo); border-top: 2px solid var(--neon); padding: 44px 20px 40px; position: relative; overflow: hidden; }
+.rodape-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.rodape strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 34px; text-transform: uppercase; color: var(--neon); line-height: 1; text-shadow: 0 0 16px rgba(184,240,74,.6); }
+.rodape .sub { font-size: 13px; margin: 8px 0 14px; color: var(--texto); }
+.rodape a { color: var(--neon); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid var(--neon); padding-bottom: 2px; }
+.rodape small { display: block; margin-top: 18px; color: var(--suave); font-size: 11px; letter-spacing: .06em; }
+
+.rodape .cacto {
+  width: 104px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid rgba(184,240,74,.5);
+  background: #6E6E6E;
+}
+
+.rodape .cacto img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); display: block; }
+
+/* ---------- Alien ---------- */
+header .hero-grade, header .marquee { position: relative; z-index: 2; }
+
+.brilho-alien {
+  position: absolute;
+  right: -30px;
+  bottom: -20px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,240,74,.22), transparent 68%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.alien {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  width: 240px;
+  max-width: 38vw;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .9;
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(72% 62% at 50% 42%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(72% 62% at 50% 42%, #000 58%, transparent 100%);
+  animation: flutuar 7s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-16px) rotate(1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+@media (max-width: 900px) {
+  .alien { width: 165px; opacity: .55; right: -14px; }
+  .brilho-alien { width: 220px; height: 220px; right: -40px; }
+}
+
+@media (max-width: 640px) {
+  .hero-grade { grid-template-columns: 1fr; }
+  .cacto-hero { max-width: 96px; justify-self: start; margin: 22px 0 0; }
+  header { padding-bottom: 30px; }
+  .alien { width: 130px; opacity: .45; }
+}
+
+@media (max-width: 480px) {
+  .produtos, .kits { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 1024px) {
+  body { padding-bottom: 60px; padding-right: 392px; }
+  #carrinho { top: 16px; right: 16px; bottom: 16px; left: auto; width: 352px; border: 2px solid var(--neon); border-radius: 18px; max-height: none; }
+  .barra { display: none; }
+  .painel { display: block; padding: 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grao" aria-hidden="true"></div>
+
+<div class="marquee" aria-hidden="true">
+  <div>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
+  </div>
+</div>
+
+<header>
+  <div class="hero-grade">
+    <div>
+      <div class="etiquetas">
+        <span class="etq cheia">+18</span>
+        <span class="etq">cabo frio · rj</span>
+        <span class="etq">entrega rápida</span>
+      </div>
+
+      <h1>Cabo<span>Brisa</span></h1>
+
+      <p class="chamada"><b>Maconha e cocaína</b> entregues na sua porta, pesadas na hora. Você pede pelo site e paga no Pix.</p>
+
+      <a class="hero-cta" href="#cardapio">ver o cardápio</a>
+    </div>
+
+    <div class="cacto-hero">
+      <img src="logo.jpg" alt="Cabo Brisa">
+    </div>
+  </div>
+
+  <div class="brilho-alien" aria-hidden="true"></div>
+  <img class="alien" src="alien.png" alt="" aria-hidden="true">
+</header>
+
+<div class="aviso">pedido mínimo R$ 20 · entrega R$ 5 em cabo frio · grátis acima de R$ 70</div>
+
+<main>
+  <section class="secao" id="cardapio">
+    <div class="topo-secao">
+      <h2 class="led">O cardápio</h2>
+      <p>Escolha o que quer, a quantidade e o endereço. O resto é com a gente 👽.</p>
+    </div>
+
+    <div class="produtos">
+      <article class="card">
+        <div class="card-topo">
+          <span class="selo">do lote</span>
+          🌿
+          <span class="dose-tag">10 g</span>
+        </div>
+        <div class="corpo">
+          <h3>Maconha</h3>
+          <p class="spec">10 g · prensado · rende 3 a 4 baseados</p>
+          <p class="desc">Pesado na hora, na sua frente. O lote muda toda semana — a foto é do que tem hoje.</p>
+          <div class="linha-preco">
+            <span class="preco">R$ 45</span>
+            <span class="por-grama">R$ 4,50<br>por g</span>
+          </div>
+          <button data-preco="45" onclick="add('Maconha 10g', this)">Adicionar</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-topo">
+          <span class="selo">melhor preço</span>
+          🌿
+          <span class="dose-tag">25 g</span>
+        </div>
+        <div class="corpo">
+          <h3>Maconha — 25 g</h3>
+          <p class="spec">25 g · prensado · mesmo lote</p>
+          <p class="desc">Para quem fuma sempre ou divide com alguém. Sai mais barato o grama e passa do valor de entrega grátis.</p>
+          <div class="linha-preco">
+            <span class="preco">R$ 100</span>
+            <span class="por-grama">R$ 4,00<br>por g</span>
+          </div>
+          <button data-preco="100" onclick="add('Maconha 25g', this)">Adicionar</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-topo">
+          <span class="selo">bate rápido</span>
+          ❄
+          <span class="dose-tag">0,5 g</span>
+        </div>
+        <div class="corpo">
+          <h3>Coca-Colaína</h3>
+          <p class="spec">cocaína · 0,5 g · papelote</p>
+          <p class="desc">Pó branco, papelote fechado na hora. Bate em cinco minutos e dura cerca de quarenta.</p>
+          <div class="linha-preco">
+            <span class="preco">R$ 20</span>
+            <span class="por-grama">R$ 40<br>por g</span>
+          </div>
+          <button data-preco="20" onclick="add('Cocaína 0,5g', this)">Adicionar</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="comoLer">
+      <h3>Como ler o cardápio</h3>
+      <p>Maconha e cocaína agem de jeitos diferentes. Leia antes de escolher.</p>
+      <div class="grade-ler">
+        <div class="item-ler"><strong>Maconha</strong><span>Relaxa, dá fome, dura de 2 a 3 horas. Bate em 5 a 10 minutos.</span></div>
+        <div class="item-ler"><strong>Cocaína</strong><span>Acelera, tira o sono, dura de 30 a 40 minutos. Bate em 5.</span></div>
+        <div class="item-ler"><strong>Redosar</strong><span>Espere pelo menos 30 minutos antes de repetir qualquer uma.</span></div>
+        <div class="item-ler"><strong>Primeira vez</strong><span>Uma tragada ou uma carreira já bastam. Beba água.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">Kits</h2>
+      <p>Juntar rende mais e sai mais barato. O desconto já vai aplicado no carrinho.</p>
+    </div>
+
+    <div class="kits">
+      <div class="kit">
+        <span class="economia">economize R$ 10</span>
+        <h4>Kit Dupla</h4>
+        <p>2 × Maconha 10 g, 20 g no total</p>
+        <p class="valor"><s>R$ 90</s><b>R$ 80</b></p>
+        <button data-preco="80" onclick="add('Kit Dupla (2x Maconha 10g)', this)">Adicionar kit</button>
+      </div>
+
+      <div class="kit">
+        <span class="economia">economize R$ 7</span>
+        <h4>Kit Completo</h4>
+        <p>1 × Maconha 10 g + 1 × Cocaína 0,5 g</p>
+        <p class="valor"><s>R$ 65</s><b>R$ 58</b></p>
+        <button data-preco="58" onclick="add('Kit Completo (Maconha + Cocaína)', this)">Adicionar kit</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">Como funciona</h2>
+      <p>Três passos, e a entrega é na sua porta.</p>
+    </div>
+
+    <div class="passos">
+      <div class="passo">
+        <span class="num">01</span>
+        <h4>Monte o pedido</h4>
+        <p>Escolha no cardápio, ajuste a quantidade e preencha o endereço completo.</p>
+      </div>
+      <div class="passo">
+        <span class="num">02</span>
+        <h4>Pague no Pix</h4>
+        <p>O pedido cai no WhatsApp. Confirmado o Pix, você recebe um código de entrega.</p>
+      </div>
+      <div class="passo">
+        <span class="num">03</span>
+        <h4>Receba com o código</h4>
+        <p>O entregador confere o código na porta antes de entregar. Só o seu pedido sai com ele.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">A ficha</h2>
+    </div>
+
+    <div class="ficha">
+      <div>
+        <h3>Área de entrega</h3>
+        <p>Cabo Frio e bairros vizinhos. Fora da área é combinado no WhatsApp antes do Pix.</p>
+      </div>
+      <div>
+        <h3>Horário</h3>
+        <p>Todos os dias, das 18h à meia-noite. Pedido feito depois disso sai no dia seguinte.</p>
+      </div>
+      <div>
+        <h3>Pagamento</h3>
+        <p>Só Pix, na confirmação. Envie o comprovante no WhatsApp — sem ele o pedido não sai.</p>
+      </div>
+      <p class="nota"><b>Primeira vez?</b> Comece com uma tragada ou uma carreira só, e espere meia hora. Beba água — as duas dão sede e a cocaína aperta o sono.</p>
+    </div>
+  </section>
+</main>
+
+<aside id="carrinho">
+  <button class="barra" onclick="alternar()" aria-expanded="false" aria-controls="painel">
+    <span id="resumo">carrinho vazio</span>
+    <span class="acao" id="acao">ver pedido</span>
+  </button>
+
+  <div class="painel" id="painel">
+    <div class="topo-carrinho">
+      <h4>Seu pedido</h4>
+      <button class="limpar" onclick="limpar()">Limpar</button>
+    </div>
+
+    <div id="itens"></div>
+
+    <div class="linhas">
+      <div class="l"><span>Subtotal</span> <span id="subtotal">R$ 0,00</span></div>
+      <div class="l"><span>Entrega</span> <span id="entrega">R$ 0,00</span></div>
+      <div class="l total"><span>Total</span> <b id="total">R$ 0,00</b></div>
+    </div>
+
+    <div class="campos">
+      <input type="text" id="rua" class="campo largo" placeholder="Rua / avenida">
+      <input type="text" id="numero" class="campo" placeholder="Número">
+      <input type="text" id="bairro" class="campo" placeholder="Bairro">
+      <input type="text" id="complemento" class="campo largo" placeholder="Complemento (apto, casa, bloco)">
+      <input type="text" id="referencia" class="campo largo" placeholder="Ponto de referência">
+    </div>
+
+    <button class="botao-pedido" onclick="finalizar()">Enviar pedido no WhatsApp</button>
+    <p class="pix">A chave Pix vai na conversa, junto com o prazo.</p>
+
+    <div id="confirmacao">
+      <p class="titulo-conf">Seu código de entrega</p>
+      <div class="codigo" id="codigo">——</div>
+      <p class="instrucao">Passe este código ao entregador na porta. Sem ele, o pedido não é liberado.</p>
+      <button class="botao-entregador" onclick="avisarEntregador()">Avisar o entregador</button>
+    </div>
+  </div>
+</aside>
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <strong>Cabo Brisa</strong>
+      <p class="sub">Cabo Frio · Região dos Lagos · RJ</p>
+      <a href="https://www.instagram.com/cabobrisa" target="_blank" rel="noopener">Instagram</a>
+      <small>maconha e cocaína · +18 · entrega em cabo frio</small>
+    </div>
+    <div class="cacto">
+      <img src="logo.jpg" alt="Cabo Brisa" loading="lazy">
+    </div>
+  </div>
+</footer>
+
+<script>
+var CHAVE = 'cabo-brisa-carrinho-3';
+var MINIMO = 20;
+var TAXA = 5;
+var GRATIS_ACIMA = 70;
+var ENTREGADOR = '5521993408072';
+var cart = [];
+var codigoAtual = '';
+var enderecoAtual = '';
+
+try {
+  var salvo = JSON.parse(localStorage.getItem(CHAVE) || '[]');
+  if (salvo && salvo.length !== undefined) { cart = salvo; }
+} catch (e) { cart = []; }
+
+cart = cart.map(function (i) {
+  return { nome: i.nome, preco: i.preco, qtd: i.qtd || 1 };
+});
+
+render();
+
+function add(nome, el) {
+  var preco = parseFloat(el.getAttribute('data-preco'));
+  var achou = null;
+
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].nome === nome) { achou = cart[i]; break; }
+  }
+
+  if (achou) { achou.qtd++; }
+  else { cart.push({ nome: nome, preco: preco, qtd: 1 }); }
+
+  persistir();
+  abrir();
+}
+
+function mudarQtd(indice, delta) {
+  cart[indice].qtd += delta;
+  if (cart[indice].qtd < 1) { cart.splice(indice, 1); }
+  persistir();
+}
+
+function remover(indice) { cart.splice(indice, 1); persistir(); }
+
+function limpar() {
+  cart = [];
+  codigoAtual = '';
+  document.getElementById('confirmacao').classList.remove('mostrar');
+  persistir();
+}
+
+function persistir() {
+  try { localStorage.setItem(CHAVE, JSON.stringify(cart)); } catch (e) {}
+  render();
+}
+
+function alternar() {
+  var c = document.getElementById('carrinho');
+  c.classList.toggle('aberto');
+  var aberto = c.classList.contains('aberto');
+  document.getElementById('acao').innerHTML = aberto ? 'fechar' : 'ver pedido';
+  document.querySelector('.barra').setAttribute('aria-expanded', aberto ? 'true' : 'false');
+}
+
+function abrir() {
+  if (window.innerWidth < 1024) {
+    document.getElementById('carrinho').classList.add('aberto');
+    document.getElementById('acao').innerHTML = 'fechar';
+  }
+}
+
+function render() {
+  var lista = document.getElementById('itens');
+  var subtotal = 0;
+  var unidades = 0;
+  var html = '';
+
+  for (var i = 0; i < cart.length; i++) {
+    var sub = cart[i].preco * cart[i].qtd;
+    subtotal += sub;
+    unidades += cart[i].qtd;
+
+    html += '<div class="item">'
+      + '<span class="item-nome">' + cart[i].nome + '</span>'
+      + '<div class="item-linha">'
+      +   '<div class="qtd">'
+      +     '<button onclick="mudarQtd(' + i + ', -1)" aria-label="Diminuir">−</button>'
+      +     '<span>' + cart[i].qtd + '</span>'
+      +     '<button onclick="mudarQtd(' + i + ', 1)" aria-label="Aumentar">+</button>'
+      +   '</div>'
+      +   '<span class="item-preco">' + formatar(sub) + '</span>'
+      +   '<button class="remover" onclick="remover(' + i + ')" aria-label="Remover">✕</button>'
+      + '</div>'
+      + '</div>';
+  }
+
+  lista.innerHTML = html || '<p class="vazio">Nada por aqui ainda.<span>Escolha um item do cardápio.</span></p>';
+
+  var taxa = subtotal >= GRATIS_ACIMA ? 0 : (subtotal > 0 ? TAXA : 0);
+  var total = subtotal + taxa;
+
+  document.getElementById('subtotal').innerHTML = formatar(subtotal);
+  document.getElementById('entrega').innerHTML =
+    taxa === 0 && subtotal > 0 ? '<span class="gratis">Grátis</span>' : formatar(taxa);
+  document.getElementById('total').innerHTML = formatar(total);
+
+  document.getElementById('resumo').innerHTML = subtotal > 0
+    ? (unidades === 1 ? '1 item · ' : unidades + ' itens · ') + formatar(total)
+    : 'carrinho vazio';
+}
+
+function formatar(valor) { return 'R$ ' + valor.toFixed(2).replace('.', ','); }
+
+function gerarCodigo() {
+  var letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  var numeros = '23456789';
+  var a = '';
+  for (var i = 0; i < 3; i++) { a += letras.charAt(Math.floor(Math.random() * letras.length)); }
+  for (var j = 0; j < 2; j++) { a += numeros.charAt(Math.floor(Math.random() * numeros.length)); }
+  return a;
+}
+
+function finalizar() {
+  if (!cart.length) { alert('Seu pedido está vazio. Escolha um item do cardápio primeiro.'); return; }
+
+  var subtotal = 0;
+  for (var i = 0; i < cart.length; i++) { subtotal += cart[i].preco * cart[i].qtd; }
+
+  if (subtotal < MINIMO) {
+    alert('O pedido mínimo é de ' + formatar(MINIMO) + '. Faltam ' + formatar(MINIMO - subtotal) + '.');
+    return;
+  }
+
+  var rua = document.getElementById('rua').value.replace(/^\s+|\s+$/g, '');
+  var numero = document.getElementById('numero').value.replace(/^\s+|\s+$/g, '');
+  var bairro = document.getElementById('bairro').value.replace(/^\s+|\s+$/g, '');
+  var complemento = document.getElementById('complemento').value.replace(/^\s+|\s+$/g, '');
+  var referencia = document.getElementById('referencia').value.replace(/^\s+|\s+$/g, '');
+
+  if (!rua || !numero || !bairro) {
+    alert('Preencha rua, número e bairro para a entrega.');
+    document.getElementById(!rua ? 'rua' : !numero ? 'numero' : 'bairro').focus();
+    return;
+  }
+
+  codigoAtual = gerarCodigo();
+
+  var linhaEndereco = rua + ', ' + numero;
+  if (complemento) { linhaEndereco += ' — ' + complemento; }
+  linhaEndereco += ' · ' + bairro;
+  if (referencia) { linhaEndereco += ' · ref.: ' + referencia; }
+  enderecoAtual = linhaEndereco;
+
+  var taxa = subtotal >= GRATIS_ACIMA ? 0 : TAXA;
+  var total = subtotal + taxa;
+  var msg = 'Olá! Quero fazer um pedido na Cabo Brisa:\n\n';
+
+  for (var j = 0; j < cart.length; j++) {
+    msg += '• ' + cart[j].qtd + 'x ' + cart[j].nome + ' — ' + formatar(cart[j].preco * cart[j].qtd) + '\n';
+  }
+
+  msg += '\nSubtotal: ' + formatar(subtotal);
+  msg += '\nEntrega: ' + (taxa === 0 ? 'grátis' : formatar(taxa));
+  msg += '\nTotal: ' + formatar(total);
+  msg += '\n\nEndereço: ' + linhaEndereco;
+  msg += '\n\nCódigo de entrega: ' + codigoAtual;
+  msg += '\n\nPago no Pix, envio o comprovante.';
+
+  document.getElementById('codigo').innerHTML = codigoAtual;
+  document.getElementById('confirmacao').classList.add('mostrar');
+
+  window.open('https://wa.me/5522981551818?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function avisarEntregador() {
+  if (!codigoAtual) { return; }
+  var msg = 'Entrega Cabo Brisa\n\n';
+  msg += 'Endereço: ' + enderecoAtual + '\n';
+  msg += 'Código de confirmação: ' + codigoAtual + '\n\n';
+  msg += 'Confira o código na porta antes de entregar.';
+  window.open('https://wa.me/' + ENTREGADOR + '?text=' + encodeURIComponent(msg), '_blank');
+}
+</script>
+
+</body>
+</html>
