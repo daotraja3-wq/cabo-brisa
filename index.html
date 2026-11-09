@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0E0618">
 <title>Cabo Brisa — maconha e cocaína · Cabo Frio</title>
-<meta name="description" content="Maconha e cocaína entregues na sua porta em Cabo Frio. Pedido pelo site, pagamento no Pix e entrega por app.">
+<meta name="description" content="Maconha por grama e cocaína entregues na sua porta em Cabo Frio. Pedido pelo site, Pix e número de pedido.">
 <meta property="og:title" content="Cabo Brisa — maconha e cocaína">
-<meta property="og:description" content="Delivery de maconha e cocaína em Cabo Frio. Pix, entrega por app na porta.">
+<meta property="og:description" content="Delivery de maconha e cocaína em Cabo Frio. Pix, entrega na porta.">
 <meta property="og:type" content="website">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,6 @@
   --roxo-2: #24103A;
   --roxo-3: #3A1F55;
   --neon: #B8F04A;
-  --neon-2: #8FE01F;
   --texto: #D9E9C9;
   --suave: #A3BA92;
   --coral: #FF6A45;
@@ -44,7 +43,7 @@ h1, h2, h3, h4 { margin: 0; }
 
 ::selection { background: var(--neon); color: var(--fundo); }
 
-button:focus-visible, input:focus-visible, a:focus-visible {
+button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
   outline: 3px solid var(--coral);
   outline-offset: 3px;
 }
@@ -55,432 +54,329 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 
 .grao {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  pointer-events: none;
-  opacity: .05;
-  mix-blend-mode: screen;
+  position: fixed; inset: 0; z-index: 30; pointer-events: none;
+  opacity: .05; mix-blend-mode: screen;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ---------- Marquee ---------- */
-.marquee {
-  background: var(--roxo);
-  border-bottom: 2px solid var(--neon);
-  box-shadow: 0 0 18px rgba(184,240,74,.28);
-  overflow: hidden;
-  padding: 8px 0;
-}
-
+.marquee { background: var(--roxo); border-bottom: 2px solid var(--neon); box-shadow: 0 0 18px rgba(184,240,74,.28); overflow: hidden; padding: 8px 0; }
 .marquee div {
-  display: flex;
-  gap: 26px;
-  white-space: nowrap;
-  width: max-content;
+  display: flex; gap: 26px; white-space: nowrap; width: max-content;
   animation: rolar 24s linear infinite;
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 13px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--neon);
-  text-shadow: 0 0 8px rgba(184,240,74,.75);
+  font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--neon); text-shadow: 0 0 8px rgba(184,240,74,.75);
 }
-
 @keyframes rolar { to { transform: translateX(-50%); } }
 
-/* ---------- Hero ---------- */
 header {
-  position: relative;
-  padding: 34px 22px 0;
-  overflow: hidden;
+  position: relative; padding: 34px 22px 0; overflow: hidden;
   border-bottom: 2px solid var(--neon);
-  background:
-    radial-gradient(80% 70% at 8% -10%, rgba(91,42,133,.55), transparent 62%),
-    radial-gradient(70% 60% at 100% 10%, rgba(143,224,31,.12), transparent 60%);
+  background: radial-gradient(80% 70% at 8% -10%, rgba(91,42,133,.55), transparent 62%),
+              radial-gradient(70% 60% at 100% 10%, rgba(143,224,31,.12), transparent 60%);
 }
 
-.hero-grade {
-  position: relative;
-  max-width: 1120px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.3fr .7fr;
-  gap: 18px;
-  align-items: end;
-}
+.hero-grade { position: relative; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; align-items: end; }
 
 .etiquetas { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
 
 .etq {
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  padding: 5px 11px;
-  border-radius: 999px;
-  border: 2px solid var(--neon);
-  color: var(--neon);
+  font-family: "Anton", Impact, sans-serif; font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 999px; border: 2px solid var(--neon); color: var(--neon);
   box-shadow: 0 0 10px rgba(184,240,74,.3), inset 0 0 10px rgba(184,240,74,.12);
 }
-
 .etq.cheia { background: var(--neon); color: var(--fundo); text-shadow: none; }
+.etq.promo { background: var(--coral); border-color: var(--coral); color: #14060A; box-shadow: 0 0 14px rgba(255,106,69,.5); }
 
 h1 {
-  font-family: "Anton", Impact, sans-serif;
-  font-size: clamp(52px, 11vw, 118px);
-  text-transform: uppercase;
-  line-height: .84;
-  letter-spacing: -.02em;
-  margin: 0 0 6px;
-  color: var(--neon);
+  font-family: "Anton", Impact, sans-serif; font-size: clamp(52px, 11vw, 118px); text-transform: uppercase;
+  line-height: .84; letter-spacing: -.02em; margin: 0 0 6px; color: var(--neon);
   text-shadow: 0 0 6px rgba(184,240,74,.9), 0 0 22px rgba(184,240,74,.55), 0 0 56px rgba(184,240,74,.3);
 }
-
 h1 span { display: block; color: var(--texto); text-shadow: 0 0 20px rgba(217,233,201,.35); }
 
-header .chamada {
-  font-size: clamp(15px, 2.2vw, 19px);
-  max-width: 34ch;
-  margin: 22px 0 0;
-  color: var(--texto);
-}
-
+header .chamada { font-size: clamp(15px, 2.2vw, 19px); max-width: 34ch; margin: 22px 0 0; color: var(--texto); }
 header .chamada b { color: var(--neon); text-shadow: 0 0 10px rgba(184,240,74,.6); }
 
 .hero-cta {
-  display: inline-block;
-  margin: 24px 0 34px;
-  background: var(--neon);
-  color: var(--fundo);
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 15px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  padding: 13px 26px;
-  border-radius: 999px;
-  text-decoration: none;
-  border: none;
+  display: inline-block; margin: 24px 0 34px; background: var(--neon); color: var(--fundo);
+  font-family: "Anton", Impact, sans-serif; font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 13px 26px; border-radius: 999px; text-decoration: none; border: none;
   box-shadow: 0 0 16px rgba(184,240,74,.6), 0 0 40px rgba(184,240,74,.25);
   transition: transform .18s ease, box-shadow .18s ease;
 }
-
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 0 22px rgba(184,240,74,.85), 0 0 60px rgba(184,240,74,.4); }
 
-/* ---------- Logo ---------- */
 .cacto-hero {
-  align-self: end;
-  justify-self: center;
-  width: 100%;
-  max-width: 230px;
-  margin-bottom: 30px;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 2px solid var(--neon);
+  align-self: end; justify-self: center; width: 100%; max-width: 230px; margin-bottom: 30px;
+  aspect-ratio: 1; overflow: hidden; border-radius: 20px; border: 2px solid var(--neon);
   box-shadow: 0 0 0 1px rgba(184,240,74,.25), 0 0 34px rgba(184,240,74,.4), 0 0 80px rgba(255,106,69,.18);
   background: #6E6E6E;
 }
-
 .cacto-hero img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); display: block; }
 
-/* ---------- Aviso ---------- */
-.aviso {
-  background: var(--roxo-2);
-  border-bottom: 2px solid var(--neon);
-  text-align: center;
-  padding: 12px 18px;
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 13px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--neon);
-  text-shadow: 0 0 8px rgba(184,240,74,.6);
-}
+.aviso { background: var(--roxo-2); border-bottom: 2px solid var(--neon); text-align: center; padding: 12px 18px;
+  font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--neon); text-shadow: 0 0 8px rgba(184,240,74,.6); }
 
-/* ---------- Seções ---------- */
 main { padding: 0 20px; }
 .secao { max-width: 1120px; margin: 0 auto; }
 
 .topo-secao { padding: 56px 0 26px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-
 .topo-secao h2 { font-family: "Anton", Impact, sans-serif; font-size: clamp(30px, 5.5vw, 52px); text-transform: uppercase; }
-
 .topo-secao p { margin: 0; font-size: 14px; color: var(--suave); max-width: 46ch; }
 
-/* ---------- Produtos ---------- */
-.produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 20px; padding-bottom: 8px; }
+.produtos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding-bottom: 8px; }
 
-.card {
-  background: var(--roxo);
-  border: 2px solid var(--roxo-3);
-  border-radius: 18px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-
+.card { background: var(--roxo); border: 2px solid var(--roxo-3); border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
 .card:hover { transform: translateY(-3px); border-color: var(--neon); box-shadow: 0 0 0 1px rgba(184,240,74,.35), 0 0 30px rgba(184,240,74,.22); }
 
-.card-topo {
-  position: relative;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 60px;
-  line-height: 1;
-  background: var(--roxo-2);
-  border-bottom: 2px solid var(--roxo-3);
-}
+.card-topo { position: relative; height: 150px; display: flex; align-items: center; justify-content: center;
+  font-size: 60px; line-height: 1; background: var(--roxo-2); border-bottom: 2px solid var(--roxo-3); }
 
-.selo {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  color: var(--neon);
-  border: 2px solid var(--neon);
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 999px;
-  transform: rotate(-3deg);
-  text-shadow: 0 0 8px rgba(184,240,74,.7);
-}
+.selo { position: absolute; top: 12px; left: 12px; background: transparent; color: var(--neon);
+  border: 2px solid var(--neon); font-family: "Anton", Impact, sans-serif; font-size: 10px; letter-spacing: .12em;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px; transform: rotate(-3deg);
+  text-shadow: 0 0 8px rgba(184,240,74,.7); }
 
-.dose-tag {
-  position: absolute;
-  bottom: -13px;
-  right: 14px;
-  background: var(--coral);
-  color: #14060A;
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 12px;
-  letter-spacing: .06em;
-  padding: 5px 11px;
-  border-radius: 999px;
-  transform: rotate(3deg);
-  box-shadow: 0 0 16px rgba(255,106,69,.45);
-}
+.estoque-tag { position: absolute; bottom: -13px; right: 14px; background: var(--coral); color: #14060A;
+  font-family: "Anton", Impact, sans-serif; font-size: 11px; letter-spacing: .06em; padding: 5px 11px;
+  border-radius: 999px; transform: rotate(3deg); box-shadow: 0 0 16px rgba(255,106,69,.45); }
 
 .corpo { padding: 26px 20px 22px; display: flex; flex-direction: column; flex: 1; }
 
-.corpo h3 {
-  font-family: "Fraunces", Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.12;
-  color: var(--neon);
-  margin-bottom: 4px;
-  text-shadow: 0 0 12px rgba(184,240,74,.45);
-}
+.corpo h3 { font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 500; font-size: 26px;
+  line-height: 1.12; color: var(--neon); margin-bottom: 4px; text-shadow: 0 0 12px rgba(184,240,74,.45); }
 
 .spec { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); margin: 0 0 12px; font-weight: 700; }
-.desc { font-size: 14px; color: var(--texto); margin: 0 0 18px; }
+.desc { font-size: 14px; color: var(--texto); margin: 0 0 16px; }
 
-.linha-preco { display: flex; align-items: center; gap: 10px; margin: auto 0 14px; }
+.preco-linha { display: flex; align-items: baseline; gap: 8px; margin: 0 0 14px; }
+.preco-g { font-family: "Anton", Impact, sans-serif; font-size: 30px; color: var(--neon);
+  text-shadow: 0 0 8px rgba(184,240,74,.75), 0 0 24px rgba(184,240,74,.4); }
+.preco-antigo { font-size: 13px; color: var(--suave); text-decoration: line-through; }
+.por-g { font-size: 12px; color: var(--suave); }
 
-.preco { font-family: "Anton", Impact, sans-serif; font-size: 34px; color: var(--neon); text-shadow: 0 0 8px rgba(184,240,74,.75), 0 0 24px rgba(184,240,74,.4); }
+.pedaco { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 
-.por-grama { font-size: 11px; color: var(--suave); line-height: 1.2; }
+.gramas {
+  display: flex; align-items: center; border: 2px solid var(--roxo-3); border-radius: 999px; overflow: hidden;
+}
+.gramas button { background: var(--roxo-2); border: none; color: var(--neon); width: 30px; height: 32px;
+  font-size: 16px; line-height: 1; cursor: pointer; padding: 0; }
+.gramas button:hover:not(:disabled) { background: var(--neon); color: var(--fundo); }
+.gramas button:disabled { opacity: .35; cursor: not-allowed; }
+.gramas input { width: 56px; height: 32px; border: none; background: var(--fundo); color: var(--texto);
+  text-align: center; font-family: inherit; font-size: 14px; font-weight: 700; }
+.gramas .un { padding-right: 10px; font-size: 12px; color: var(--suave); }
 
-.card button, .kit button {
-  width: 100%;
-  background: transparent;
-  color: var(--neon);
-  border: 2px solid var(--neon);
-  padding: 11px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: "Anton", Impact, sans-serif;
-  font-size: 14px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+.total-item { margin-left: auto; font-family: "Anton", Impact, sans-serif; font-size: 20px; color: var(--neon); }
+
+.aviso-estoque { margin: 0 0 10px; font-size: 12px; color: var(--coral); min-height: 16px; }
+
+.card button.add, .kit button {
+  width: 100%; background: transparent; color: var(--neon); border: 2px solid var(--neon);
+  padding: 11px; border-radius: 999px; cursor: pointer; font-family: "Anton", Impact, sans-serif;
+  font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
   transition: background .2s ease, color .2s ease, box-shadow .2s ease;
 }
+.card button.add:hover, .kit button:hover { background: var(--neon); color: var(--fundo); box-shadow: 0 0 22px rgba(184,240,74,.6); }
+.card button.add:disabled, .kit button:disabled { opacity: .45; cursor: not-allowed; }
 
-.card button:hover, .kit button:hover { background: var(--neon); color: var(--fundo); box-shadow: 0 0 22px rgba(184,240,74,.6); }
-
-/* ---------- Como ler ---------- */
-.comoLer { background: var(--roxo-2); border: 2px solid var(--neon); border-radius: 20px; padding: 30px 26px; margin-top: 44px; box-shadow: inset 0 0 40px rgba(184,240,74,.07); }
-
-.comoLer h3 { font-family: "Anton", Impact, sans-serif; font-size: 24px; text-transform: uppercase; color: var(--neon); text-shadow: 0 0 12px rgba(184,240,74,.6); margin-bottom: 6px; }
+.comoLer { background: var(--roxo-2); border: 2px solid var(--neon); border-radius: 20px; padding: 30px 26px;
+  margin-top: 44px; box-shadow: inset 0 0 40px rgba(184,240,74,.07); }
+.comoLer h3 { font-family: "Anton", Impact, sans-serif; font-size: 24px; text-transform: uppercase; color: var(--neon);
+  text-shadow: 0 0 12px rgba(184,240,74,.6); margin-bottom: 6px; }
 .comoLer > p { font-size: 14px; color: var(--texto); margin: 0 0 22px; }
-
 .grade-ler { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
-
 .item-ler { border-left: 2px solid var(--neon); padding-left: 14px; }
-.item-ler strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--neon); margin-bottom: 4px; }
+.item-ler strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--neon); margin-bottom: 4px; }
 .item-ler span { font-size: 13px; color: var(--texto); }
 
-/* ---------- Kits ---------- */
 .kits { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-
-.kit { background: var(--roxo); border: 2px solid var(--roxo-3); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; transition: border-color .2s ease, box-shadow .2s ease; }
-
+.kit { background: var(--roxo); border: 2px solid var(--roxo-3); border-radius: 18px; padding: 22px;
+  display: flex; flex-direction: column; transition: border-color .2s ease, box-shadow .2s ease; }
 .kit:hover { border-color: var(--neon); box-shadow: 0 0 26px rgba(184,240,74,.2); }
-
-.kit .economia {
-  align-self: flex-start; background: var(--neon); color: var(--fundo);
-  font-family: "Anton", Impact, sans-serif; font-size: 10px; letter-spacing: .12em;
-  text-transform: uppercase; padding: 5px 10px; border-radius: 999px; margin-bottom: 12px;
-}
-
-.kit h4 { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 23px; color: var(--neon); margin-bottom: 6px; text-shadow: 0 0 12px rgba(184,240,74,.4); }
+.kit .economia { align-self: flex-start; background: var(--neon); color: var(--fundo);
+  font-family: "Anton", Impact, sans-serif; font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 999px; margin-bottom: 12px; }
+.kit h4 { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 23px; color: var(--neon);
+  margin-bottom: 6px; text-shadow: 0 0 12px rgba(184,240,74,.4); }
 .kit p { font-size: 13px; color: var(--texto); margin: 0 0 16px; }
 .kit .valor { margin: auto 0 14px; font-size: 12px; color: var(--suave); }
 .kit .valor s { opacity: .7; }
-.kit .valor b { display: block; font-family: "Anton", Impact, sans-serif; font-size: 30px; color: var(--neon); font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
+.kit .valor b { display: block; font-family: "Anton", Impact, sans-serif; font-size: 30px; color: var(--neon);
+  font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
 
-/* ---------- Passos ---------- */
+/* avaliações */
+.aval { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+.form-aval { background: var(--roxo-2); border: 2px solid var(--roxo-3); border-radius: 18px; padding: 22px; }
+.form-aval label { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--suave); margin-bottom: 6px; font-weight: 700; }
+.estrelas { display: flex; gap: 4px; margin-bottom: 14px; }
+.estrelas button { background: none; border: none; font-size: 26px; line-height: 1; cursor: pointer;
+  color: var(--roxo-3); padding: 0; transition: color .15s ease, transform .15s ease; }
+.estrelas button.on { color: var(--neon); text-shadow: 0 0 10px rgba(184,240,74,.7); }
+.estrelas button:hover { transform: scale(1.12); }
+.form-aval textarea { width: 100%; min-height: 84px; resize: vertical; padding: 11px 13px; border-radius: 10px;
+  border: 2px solid var(--roxo-3); background: var(--fundo); color: var(--texto); font-family: inherit; font-size: 14px; }
+.form-aval textarea:focus { outline: none; border-color: var(--neon); }
+.form-aval .enviar { margin-top: 12px; width: 100%; background: var(--neon); border: none; padding: 12px;
+  border-radius: 999px; color: var(--fundo); font-family: "Anton", Impact, sans-serif; font-size: 13px;
+  letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.form-aval .nota-local { margin: 10px 0 0; font-size: 11px; color: var(--suave); }
+
+.lista-aval { display: flex; flex-direction: column; gap: 14px; }
+.aval-item { background: var(--roxo); border: 2px solid var(--roxo-3); border-radius: 14px; padding: 16px 18px; }
+.aval-item .quem { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--suave); margin-bottom: 6px; }
+.aval-item .quem b { color: var(--neon); }
+.aval-item .estrelinhas { color: var(--neon); letter-spacing: 2px; }
+.aval-item p { margin: 0; font-size: 14px; color: var(--texto); }
+.aval-vazio { font-size: 14px; color: var(--suave); }
+
+/* alien / cupom */
+.alien-bloco { background: linear-gradient(170deg, #1C0F2E, #12081F); border: 2px solid var(--neon);
+  border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: .9fr 1.1fr; margin-top: 10px;
+  box-shadow: 0 0 40px rgba(184,240,74,.18); }
+.alien-img { position: relative; min-height: 300px; background: #12081F; }
+.alien-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.alien-txt { padding: 28px 26px; display: flex; flex-direction: column; justify-content: center; }
+.alien-txt h3 { font-family: "Anton", Impact, sans-serif; font-size: 26px; text-transform: uppercase;
+  color: var(--neon); text-shadow: 0 0 14px rgba(184,240,74,.6); margin-bottom: 8px; }
+.alien-txt p { font-size: 14px; color: var(--texto); margin: 0 0 18px; }
+.alien-txt button { align-self: flex-start; background: transparent; border: 2px solid var(--neon);
+  color: var(--neon); padding: 12px 22px; border-radius: 999px; cursor: pointer;
+  font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  transition: background .2s ease, color .2s ease; }
+.alien-txt button:hover { background: var(--neon); color: var(--fundo); }
+.cupom-caixa { display: none; margin-top: 16px; border: 2px dashed var(--neon); border-radius: 12px; padding: 14px;
+  background: rgba(184,240,74,.08); text-align: center; }
+.cupom-caixa.mostrar { display: block; }
+.cupom-caixa .cod { font-family: "Anton", Impact, sans-serif; font-size: 26px; letter-spacing: .16em;
+  color: var(--neon); text-shadow: 0 0 14px rgba(184,240,74,.8); }
+.cupom-caixa .val { font-size: 12px; color: var(--texto); margin: 6px 0 0; }
+
 .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; padding-bottom: 8px; }
 .passo { border-top: 2px solid var(--roxo-3); padding-top: 14px; }
 .passo .num { font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .14em; color: var(--coral); }
 .passo h4 { font-family: "Anton", Impact, sans-serif; font-size: 17px; text-transform: uppercase; color: var(--neon); margin: 4px 0 6px; }
 .passo p { font-size: 14px; color: var(--texto); margin: 0; }
 
-/* ---------- Ficha ---------- */
 .ficha { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 24px; padding-bottom: 10px; }
 .ficha h3 { font-family: "Anton", Impact, sans-serif; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--neon); margin-bottom: 6px; }
 .ficha p { font-size: 14px; color: var(--texto); margin: 0; }
 .ficha p b { color: var(--coral); }
-
-.nota { grid-column: 1 / -1; border: 2px solid var(--neon); border-radius: 14px; padding: 16px 20px; font-size: 14px; color: var(--texto); background: rgba(184,240,74,.06); }
+.nota { grid-column: 1 / -1; border: 2px solid var(--neon); border-radius: 14px; padding: 16px 20px;
+  font-size: 14px; color: var(--texto); background: rgba(184,240,74,.06); }
 .nota b { color: var(--neon); }
 
-/* ---------- Carrinho ---------- */
-#carrinho {
-  position: fixed; bottom: 0; left: 0; right: 0;
-  background: var(--roxo); border-top: 2px solid var(--neon);
-  border-radius: 18px 18px 0 0; box-shadow: 0 -14px 40px -14px rgba(0,0,0,.8);
-  z-index: 20; overflow-y: auto; max-height: 88vh;
-}
-
-.barra {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  width: 100%; background: var(--roxo-2); color: var(--texto);
-  border: none; border-bottom: 2px solid var(--roxo-3); padding: 15px 18px 42px;
-  border-radius: 18px 18px 0 0; cursor: pointer; font-family: "Anton", Impact, sans-serif;
-  font-size: 13px; letter-spacing: .08em; text-transform: uppercase; text-align: left;
-}
-
+/* carrinho */
+#carrinho { position: fixed; bottom: 0; left: 0; right: 0; background: var(--roxo);
+  border-top: 2px solid var(--neon); border-radius: 18px 18px 0 0;
+  box-shadow: 0 -14px 40px -14px rgba(0,0,0,.8); z-index: 20; overflow-y: auto; max-height: 88vh; }
+.barra { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%;
+  background: var(--roxo-2); color: var(--texto); border: none; border-bottom: 2px solid var(--roxo-3);
+  padding: 15px 18px; border-radius: 18px 18px 0 0; cursor: pointer; font-family: "Anton", Impact, sans-serif;
+  font-size: 13px; letter-spacing: .08em; text-transform: uppercase; text-align: left; }
 .barra .acao { color: var(--neon); white-space: nowrap; text-shadow: 0 0 8px rgba(184,240,74,.7); }
-
 .painel { display: none; padding: 18px; }
 #carrinho.aberto .painel { display: block; }
-
 .topo-carrinho { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 #carrinho h4 { font-family: "Anton", Impact, sans-serif; font-size: 19px; text-transform: uppercase; color: var(--neon); }
-
-.limpar { background: none; border: none; color: var(--suave); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; text-decoration: underline; padding: 0; font-family: inherit; }
+.limpar { background: none; border: none; color: var(--suave); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; cursor: pointer; text-decoration: underline; padding: 0; font-family: inherit; }
 .limpar:hover { color: var(--coral); }
-
 #itens { margin-bottom: 14px; }
 .vazio { margin: 0; padding: 14px 0; color: var(--texto); font-size: 14px; }
 .vazio span { display: block; font-size: 13px; color: var(--suave); }
-
-.item { display: flex; flex-direction: column; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--roxo-3); font-size: 14px; }
+.item { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--roxo-3); font-size: 14px; }
 .item:last-child { border-bottom: 0; }
 .item-nome { color: var(--texto); font-weight: 700; }
-.item-linha { display: flex; align-items: center; gap: 10px; }
-
-.qtd { display: flex; align-items: center; border: 2px solid var(--roxo-3); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
-.qtd button { background: var(--roxo-2); border: none; color: var(--neon); width: 26px; height: 26px; font-size: 14px; line-height: 1; cursor: pointer; padding: 0; }
-.qtd button:hover { background: var(--neon); color: var(--fundo); }
-.qtd span { min-width: 22px; text-align: center; font-size: 13px; font-weight: 700; color: var(--texto); }
-
+.item-nome small { display: block; font-weight: 400; color: var(--suave); font-size: 12px; }
 .item-preco { margin-left: auto; color: var(--neon); font-weight: 700; white-space: nowrap; }
-
-.remover { background: var(--roxo-2); border: 2px solid var(--roxo-3); color: var(--suave); width: 24px; height: 24px; border-radius: 50%; cursor: pointer; font-size: 11px; line-height: 1; padding: 0; flex-shrink: 0; }
+.remover { background: var(--roxo-2); border: 2px solid var(--roxo-3); color: var(--suave); width: 24px; height: 24px;
+  border-radius: 50%; cursor: pointer; font-size: 11px; line-height: 1; padding: 0; flex-shrink: 0; }
 .remover:hover { background: var(--coral); color: #14060A; border-color: var(--coral); }
 
 .linhas { border-top: 1px solid var(--roxo-3); padding-top: 12px; margin-bottom: 14px; font-size: 14px; color: var(--texto); }
-.linhas .l { display: flex; justify-content: space-between; padding: 3px 0; gap: 10px; }
+.linhas .l { display: flex; justify-content: space-between; padding: 3px 0; }
+.linhas .l.desc { color: var(--neon); }
 .linhas .total { border-top: 2px dashed var(--roxo-3); margin-top: 8px; padding-top: 9px; align-items: baseline; }
-.linhas .total b { font-family: "Anton", Impact, sans-serif; font-size: 24px; color: var(--neon); font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
+.linhas .total b { font-family: "Anton", Impact, sans-serif; font-size: 24px; color: var(--neon); font-weight: 400;
+  text-shadow: 0 0 10px rgba(184,240,74,.6); }
 .gratis { color: var(--neon); font-weight: 700; }
-.a-combinar { color: var(--coral); font-weight: 700; font-size: 12px; text-align: right; }
 
 .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.campo { width: 100%; padding: 11px 13px; border-radius: 10px; border: 2px solid var(--roxo-3); background: var(--fundo); font-family: inherit; font-size: 14px; color: var(--texto); }
+.campo { width: 100%; padding: 11px 13px; border-radius: 10px; border: 2px solid var(--roxo-3);
+  background: var(--fundo); font-family: inherit; font-size: 14px; color: var(--texto); }
 .campo::placeholder { color: #7B8C6D; }
 .campo:focus { outline: none; border-color: var(--neon); box-shadow: 0 0 12px rgba(184,240,74,.25); }
 .campo.largo { grid-column: 1 / -1; margin-bottom: 12px; }
 
-.frete-info {
-  grid-column: 1 / -1; font-size: 12px; color: var(--suave);
-  margin: -4px 0 10px; min-height: 16px;
-}
-.frete-info.ok { color: var(--neon); }
-.frete-info.fora { color: var(--coral); }
+.extra { margin: 12px 0; border-top: 1px solid var(--roxo-3); padding-top: 12px; }
+.extra label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); margin-bottom: 6px; }
+.extra .linha-cupom { display: flex; gap: 8px; margin-bottom: 10px; }
+.extra input { flex: 1; padding: 10px 12px; border-radius: 9px; border: 2px solid var(--roxo-3);
+  background: var(--fundo); color: var(--texto); font-family: inherit; font-size: 13px; }
+.extra input:focus { outline: none; border-color: var(--neon); }
+.extra button { background: var(--roxo-2); border: 2px solid var(--neon); color: var(--neon);
+  padding: 0 14px; border-radius: 9px; cursor: pointer; font-family: inherit; font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase; }
+.extra button:hover { background: var(--neon); color: var(--fundo); }
+.extra .msg { font-size: 11px; color: var(--coral); min-height: 14px; margin: 4px 0 0; }
 
-.botao-pedido {
-  width: 100%; background: var(--neon); border: none; padding: 13px; border-radius: 999px;
+.botao-pedido { width: 100%; background: var(--neon); border: none; padding: 13px; border-radius: 999px;
   color: var(--fundo); font-family: "Anton", Impact, sans-serif; font-size: 14px; letter-spacing: .1em;
   text-transform: uppercase; cursor: pointer; box-shadow: 0 0 16px rgba(184,240,74,.5);
-  transition: box-shadow .2s ease, transform .18s ease;
-}
+  transition: box-shadow .2s ease, transform .18s ease; }
 .botao-pedido:hover { box-shadow: 0 0 28px rgba(184,240,74,.85); transform: translateY(-1px); }
-
 .pix { margin: 12px 0 0; font-size: 12px; color: var(--suave); text-align: center; }
 
-#confirmacao { display: none; margin-top: 16px; border: 2px solid var(--neon); background: rgba(184,240,74,.07); border-radius: 14px; padding: 16px; }
+#confirmacao { display: none; margin-top: 16px; border: 2px solid var(--neon); background: rgba(184,240,74,.07);
+  border-radius: 14px; padding: 16px; }
 #confirmacao.mostrar { display: block; }
-#confirmacao .titulo-conf { font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--neon); margin: 0 0 8px; }
-.codigo { font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: .14em; color: var(--neon); text-align: center; padding: 10px; background: var(--fundo); border: 2px dashed var(--neon); border-radius: 10px; margin-bottom: 10px; text-shadow: 0 0 14px rgba(184,240,74,.8); }
+#confirmacao .titulo-conf { font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--neon); margin: 0 0 8px; }
+.codigo { font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: .14em; color: var(--neon);
+  text-align: center; padding: 10px; background: var(--fundo); border: 2px dashed var(--neon);
+  border-radius: 10px; margin-bottom: 10px; text-shadow: 0 0 14px rgba(184,240,74,.8); }
 #confirmacao .instrucao { font-size: 12px; color: var(--texto); margin: 0 0 12px; text-align: center; }
-.botao-entregador { width: 100%; background: transparent; border: 2px solid var(--neon); padding: 12px; border-radius: 999px; color: var(--neon); font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.botao-entregador { width: 100%; background: transparent; border: 2px solid var(--neon); padding: 12px;
+  border-radius: 999px; color: var(--neon); font-family: "Anton", Impact, sans-serif; font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
 .botao-entregador:hover { background: var(--neon); color: var(--fundo); }
 
-/* ---------- Rodapé ---------- */
-.rodape { margin-top: 64px; background: var(--roxo); border-top: 2px solid var(--neon); padding: 44px 20px 40px; position: relative; overflow: hidden; }
+.rodape { margin-top: 64px; background: var(--roxo); border-top: 2px solid var(--neon); padding: 44px 20px 40px;
+  position: relative; overflow: hidden; }
 .rodape-in { max-width: 1120px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-.rodape strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 34px; text-transform: uppercase; color: var(--neon); line-height: 1; text-shadow: 0 0 16px rgba(184,240,74,.6); }
+.rodape strong { display: block; font-family: "Anton", Impact, sans-serif; font-size: 34px; text-transform: uppercase;
+  color: var(--neon); line-height: 1; text-shadow: 0 0 16px rgba(184,240,74,.6); }
 .rodape .sub { font-size: 13px; margin: 8px 0 14px; color: var(--texto); }
-.rodape a { color: var(--neon); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid var(--neon); padding-bottom: 2px; }
+.rodape a { color: var(--neon); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; border-bottom: 2px solid var(--neon); padding-bottom: 2px; }
 .rodape small { display: block; margin-top: 18px; color: var(--suave); font-size: 11px; letter-spacing: .06em; }
-
-.rodape .cacto { width: 104px; aspect-ratio: 1; overflow: hidden; border-radius: 12px; border: 2px solid rgba(184,240,74,.5); background: #6E6E6E; }
+.rodape .citacao { max-width: 1120px; margin: 30px auto 0; border-top: 1px solid var(--roxo-3); padding-top: 22px;
+  font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 16px; color: var(--texto); }
+.rodape .citacao span { display: block; font-family: "Space Grotesk", sans-serif; font-style: normal;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--suave); margin-top: 8px; }
+.rodape .miudo { max-width: 1120px; margin: 26px auto 0; font-size: 10px; color: #6E8460; letter-spacing: .04em; }
+.rodape .cacto { width: 104px; aspect-ratio: 1; overflow: hidden; border-radius: 12px;
+  border: 2px solid rgba(184,240,74,.5); background: #6E6E6E; }
 .rodape .cacto img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); display: block; }
-
-/* ---------- Alien ---------- */
-header .hero-grade, header .marquee { position: relative; z-index: 2; }
-
-.brilho-alien {
-  position: absolute; right: -30px; bottom: -20px; width: 340px; height: 340px;
-  border-radius: 50%; background: radial-gradient(circle, rgba(184,240,74,.22), transparent 68%);
-  filter: blur(18px); pointer-events: none; z-index: 0;
-}
-
-.alien {
-  position: absolute; right: 10px; bottom: 0; width: 240px; max-width: 38vw;
-  pointer-events: none; z-index: 1; opacity: .9; mix-blend-mode: screen;
-  -webkit-mask-image: radial-gradient(72% 62% at 50% 42%, #000 58%, transparent 100%);
-  mask-image: radial-gradient(72% 62% at 50% 42%, #000 58%, transparent 100%);
-  animation: flutuar 7s ease-in-out infinite;
-}
-
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-16px) rotate(1deg); }
-}
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 
-@media (max-width: 900px) {
-  .alien { width: 165px; opacity: .55; right: -14px; }
-  .brilho-alien { width: 220px; height: 220px; right: -40px; }
+@media (max-width: 820px) {
+  .aval { grid-template-columns: 1fr; }
+  .alien-bloco { grid-template-columns: 1fr; }
+  .alien-img { min-height: 240px; }
 }
 
 @media (max-width: 640px) {
   .hero-grade { grid-template-columns: 1fr; }
   .cacto-hero { max-width: 96px; justify-self: start; margin: 22px 0 0; }
   header { padding-bottom: 30px; }
-  .alien { width: 130px; opacity: .45; }
 }
 
 @media (max-width: 480px) { .produtos, .kits { grid-template-columns: 1fr; } }
@@ -489,7 +385,7 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
   body { padding-bottom: 60px; padding-right: 392px; }
   #carrinho { top: 16px; right: 16px; bottom: 16px; left: auto; width: 352px; border: 2px solid var(--neon); border-radius: 18px; max-height: none; }
   .barra { display: none; }
-  .painel { display: block; padding: 22px 22px 40px; }
+  .painel { display: block; padding: 22px; }
 }
 </style>
 </head>
@@ -500,8 +396,8 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
 
 <div class="marquee" aria-hidden="true">
   <div>
-    <span>cabo frio</span><span>·</span><span>entrega por app</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
-    <span>cabo frio</span><span>·</span><span>entrega por app</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>preço por grama</span><span>·</span><span>+18</span><span>·</span>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>preço por grama</span><span>·</span><span>+18</span><span>·</span>
   </div>
 </div>
 
@@ -511,32 +407,29 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
       <div class="etiquetas">
         <span class="etq cheia">+18</span>
         <span class="etq">cabo frio · rj</span>
-        <span class="etq">entrega por app</span>
+        <span class="etq promo">1 g a R$ 10 na inauguração</span>
       </div>
 
       <h1>Cabo<span>Brisa</span></h1>
 
-      <p class="chamada"><b>Maconha e cocaína</b> entregues na sua porta, pesadas na hora. Você pede pelo site e paga no Pix.</p>
+      <p class="chamada"><b>Maconha por grama</b> e cocaína em papelote, entregues na sua porta. Você escolhe a quantidade e paga no Pix.</p>
 
       <a class="hero-cta" href="#cardapio">ver o cardápio</a>
     </div>
 
     <div class="cacto-hero">
-      <img src="logo.jpg" alt="Cabo Brisa">
+      <img src="logo.jpg" data-n="0" onerror="tentarExt(this)" alt="Cabo Brisa">
     </div>
   </div>
-
-  <div class="brilho-alien" aria-hidden="true"></div>
-  <img class="alien" src="alien.png" alt="" aria-hidden="true">
 </header>
 
-<div class="aviso">pedido mínimo R$ 25 · frete calculado pelo bairro · grátis acima de R$ 90</div>
+<div class="aviso" id="faixaPromo">promoção de inauguração: R$ 10 o grama só nas duas primeiras semanas</div>
 
 <main>
   <section class="secao" id="cardapio">
     <div class="topo-secao">
       <h2 class="led">O cardápio</h2>
-      <p>Escolha o que quer, a quantidade e o endereço. O resto é com a gente 👽.</p>
+      <p>Escolha a quantidade em gramas. O preço oficial é R$ 12 o grama — na inauguração, R$ 10.</p>
     </div>
 
     <div class="produtos">
@@ -544,35 +437,28 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
         <div class="card-topo">
           <span class="selo">do lote</span>
           🌿
-          <span class="dose-tag">10 g</span>
+          <span class="estoque-tag" id="estoque-maconha">restam 40 g</span>
         </div>
         <div class="corpo">
           <h3>Maconha</h3>
-          <p class="spec">10 g · prensado · rende 3 a 4 baseados</p>
-          <p class="desc">Pesado na hora, na sua frente. O lote muda toda semana — a foto é do que tem hoje.</p>
-          <div class="linha-preco">
-            <span class="preco">R$ 45</span>
-            <span class="por-grama">R$ 4,50<br>por g</span>
+          <p class="spec">vendida por grama · embalada fechada</p>
+          <p class="desc">O lote muda toda semana. Monte a quantidade que quiser, a partir de 1 g.</p>
+          <div class="preco-linha">
+            <span class="preco-g" id="preco-maconha">R$ 10</span>
+            <span class="preco-antigo" id="antigo-maconha">R$ 12</span>
+            <span class="por-g">por grama</span>
           </div>
-          <button data-preco="45" onclick="add('Maconha 10g', this)">Adicionar</button>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-topo">
-          <span class="selo">melhor preço</span>
-          🌿
-          <span class="dose-tag">25 g</span>
-        </div>
-        <div class="corpo">
-          <h3>Maconha — 25 g</h3>
-          <p class="spec">25 g · prensado · mesmo lote</p>
-          <p class="desc">Para quem fuma sempre ou divide com alguém. Sai mais barato o grama e passa do valor de entrega grátis.</p>
-          <div class="linha-preco">
-            <span class="preco">R$ 100</span>
-            <span class="por-grama">R$ 4,00<br>por g</span>
+          <div class="pedaco">
+            <div class="gramas">
+              <button type="button" onclick="passo('maconha', -1)" aria-label="Diminuir">−</button>
+              <input type="number" id="g-maconha" value="1" min="1" step="1" oninput="digitar('maconha')" aria-label="Gramas de maconha">
+              <span class="un">g</span>
+              <button type="button" onclick="passo('maconha', 1)" aria-label="Aumentar">+</button>
+            </div>
+            <span class="total-item" id="item-maconha">R$ 10</span>
           </div>
-          <button data-preco="100" onclick="add('Maconha 25g', this)">Adicionar</button>
+          <p class="aviso-estoque" id="aviso-maconha"></p>
+          <button class="add" id="add-maconha" onclick="add('maconha')">Adicionar</button>
         </div>
       </article>
 
@@ -580,17 +466,27 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
         <div class="card-topo">
           <span class="selo">bate rápido</span>
           ❄
-          <span class="dose-tag">0,5 g</span>
+          <span class="estoque-tag" id="estoque-cocaina">restam 12 g</span>
         </div>
         <div class="corpo">
           <h3>Coca-Colaína</h3>
-          <p class="spec">cocaína · 0,5 g · papelote</p>
-          <p class="desc">Pó branco, papelote fechado na hora. Bate em cinco minutos e dura cerca de quarenta.</p>
-          <div class="linha-preco">
-            <span class="preco">R$ 20</span>
-            <span class="por-grama">R$ 40<br>por g</span>
+          <p class="spec">cocaína · vendida por grama</p>
+          <p class="desc">Pó branco, pesado e embalado na hora. Bate em cinco minutos e dura cerca de quarenta.</p>
+          <div class="preco-linha">
+            <span class="preco-g" id="preco-cocaina">R$ 40</span>
+            <span class="por-g">por grama · mínimo 0,5 g</span>
           </div>
-          <button data-preco="20" onclick="add('Cocaína 0,5g', this)">Adicionar</button>
+          <div class="pedaco">
+            <div class="gramas">
+              <button type="button" onclick="passo('cocaina', -0.5)" aria-label="Diminuir">−</button>
+              <input type="number" id="g-cocaina" value="0.5" min="0.5" step="0.5" oninput="digitar('cocaina')" aria-label="Gramas de cocaína">
+              <span class="un">g</span>
+              <button type="button" onclick="passo('cocaina', 0.5)" aria-label="Aumentar">+</button>
+            </div>
+            <span class="total-item" id="item-cocaina">R$ 20</span>
+          </div>
+          <p class="aviso-estoque" id="aviso-cocaina"></p>
+          <button class="add" id="add-cocaina" onclick="add('cocaina')">Adicionar</button>
         </div>
       </article>
     </div>
@@ -610,24 +506,72 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
   <section class="secao">
     <div class="topo-secao">
       <h2 class="led">Kits</h2>
-      <p>Juntar rende mais e sai mais barato. O desconto já vai aplicado no carrinho.</p>
+      <p>Quantidade fechada, com desconto. O valor já vai aplicado no carrinho.</p>
     </div>
 
     <div class="kits">
       <div class="kit">
-        <span class="economia">economize R$ 10</span>
+        <span class="economia">economize R$ 8</span>
         <h4>Kit Dupla</h4>
-        <p>2 × Maconha 10 g, 20 g no total</p>
-        <p class="valor"><s>R$ 90</s><b>R$ 80</b></p>
-        <button data-preco="80" onclick="add('Kit Dupla (2x Maconha 10g)', this)">Adicionar kit</button>
+        <p>5 g de maconha + 0,5 g de cocaína</p>
+        <p class="valor"><s>R$ 70</s><b>R$ 62</b></p>
+        <button onclick="addKit('kit1')">Adicionar kit</button>
       </div>
 
       <div class="kit">
-        <span class="economia">economize R$ 7</span>
-        <h4>Kit Completo</h4>
-        <p>1 × Maconha 10 g + 1 × Cocaína 0,5 g</p>
-        <p class="valor"><s>R$ 65</s><b>R$ 58</b></p>
-        <button data-preco="58" onclick="add('Kit Completo (Maconha + Cocaína)', this)">Adicionar kit</button>
+        <span class="economia">economize R$ 15</span>
+        <h4>Kit Mês</h4>
+        <p>10 g de maconha + 1 g de cocaína</p>
+        <p class="valor"><s>R$ 160</s><b>R$ 145</b></p>
+        <button onclick="addKit('kit2')">Adicionar kit</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">O que dizem</h2>
+      <p>Nota e comentário, sem cadastro e sem nome.</p>
+    </div>
+
+    <div class="aval">
+      <div class="form-aval">
+        <label>sua nota</label>
+        <div class="estrelas" id="estrelas">
+          <button type="button" onclick="nota(1)" aria-label="1 estrela">★</button>
+          <button type="button" onclick="nota(2)" aria-label="2 estrelas">★</button>
+          <button type="button" onclick="nota(3)" aria-label="3 estrelas">★</button>
+          <button type="button" onclick="nota(4)" aria-label="4 estrelas">★</button>
+          <button type="button" onclick="nota(5)" aria-label="5 estrelas">★</button>
+        </div>
+        <label for="comentario">comentário</label>
+        <textarea id="comentario" placeholder="o que achou do produto e da entrega" maxlength="280"></textarea>
+        <button class="enviar" onclick="enviarAval()">Publicar</button>
+        <p class="nota-local">As avaliações ficam salvas neste navegador. Para aparecerem para todos, precisam de um servidor.</p>
+      </div>
+
+      <div class="lista-aval" id="listaAval"></div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">Não clique no alien</h2>
+      <p>Ele está meditando. Se você clicar, ele solta um cupom.</p>
+    </div>
+
+    <div class="alien-bloco">
+      <div class="alien-img">
+        <img src="alien.jpg" alt="Alien meditando com um baseado na boca e boné com o logo da Cabo Brisa" loading="lazy">
+      </div>
+      <div class="alien-txt">
+        <h3>Não clique no alien</h3>
+        <p>Sério, não clique. Ele libera <b>R$ 5 de desconto</b> — mas só para os cinco primeiros, uma vez por pessoa.</p>
+        <button onclick="pegarCupom()">não clique no alien</button>
+        <div class="cupom-caixa" id="cupomCaixa">
+          <div class="cod" id="cupomCod">——</div>
+          <p class="val" id="cupomVal"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -642,17 +586,17 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
       <div class="passo">
         <span class="num">01</span>
         <h4>Monte o pedido</h4>
-        <p>Escolha no cardápio, ajuste a quantidade e informe o CEP. O frete sai na hora.</p>
+        <p>Escolha os gramas, ajuste e preencha o endereço completo.</p>
       </div>
       <div class="passo">
         <span class="num">02</span>
         <h4>Pague no Pix</h4>
-        <p>O pedido cai no WhatsApp. Confirmado o Pix, você recebe um código de entrega.</p>
+        <p>O pedido cai no WhatsApp. Confirmado o Pix, você recebe o número do pedido.</p>
       </div>
       <div class="passo">
         <span class="num">03</span>
-        <h4>Receba na porta</h4>
-        <p>A entrega sai por app. O motorista não espera — esteja pronto no endereço.</p>
+        <h4>Receba com o número</h4>
+        <p>O motorista não espera. Tenha o número do pedido em mãos para conferir na porta.</p>
       </div>
     </div>
   </section>
@@ -665,7 +609,7 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
     <div class="ficha">
       <div>
         <h3>Área de entrega</h3>
-        <p>Cabo Frio e distritos. O frete é calculado pelo bairro, direto no carrinho.</p>
+        <p>Cabo Frio e bairros vizinhos. Fora da área é combinado no WhatsApp antes do Pix.</p>
       </div>
       <div>
         <h3>Horário</h3>
@@ -676,6 +620,7 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
         <p>Só Pix, na confirmação. Envie o comprovante no WhatsApp — sem ele o pedido não sai.</p>
       </div>
       <p class="nota"><b>Primeira vez?</b> Comece com uma tragada ou uma carreira só, e espere meia hora. Beba água — as duas dão sede e a cocaína aperta o sono.</p>
+      <p class="nota"><b>Quanto dá para levar?</b> Até 40 g a lei costuma tratar como uso pessoal, mas não é garantia: depende de como está acondicionado e do entendimento de quem aborda.</p>
     </div>
   </section>
 </main>
@@ -696,13 +641,12 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
 
     <div class="linhas">
       <div class="l"><span>Subtotal</span> <span id="subtotal">R$ 0,00</span></div>
-      <div class="l"><span>Entrega</span> <span id="entrega">—</span></div>
+      <div class="l"><span>Entrega</span> <span id="entrega">R$ 0,00</span></div>
+      <div class="l desc" id="linhaDesconto" style="display:none"><span>Desconto</span> <span id="desconto">R$ 0,00</span></div>
       <div class="l total"><span>Total</span> <b id="total">R$ 0,00</b></div>
     </div>
 
     <div class="campos">
-      <input type="text" id="cep" class="campo largo" inputmode="numeric" placeholder="CEP (calcula o frete)" maxlength="9">
-      <div class="frete-info" id="freteInfo"></div>
       <input type="text" id="rua" class="campo largo" placeholder="Rua / avenida">
       <input type="text" id="numero" class="campo" placeholder="Número">
       <input type="text" id="bairro" class="campo" placeholder="Bairro">
@@ -710,14 +654,28 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
       <input type="text" id="referencia" class="campo largo" placeholder="Ponto de referência">
     </div>
 
+    <div class="extra">
+      <label for="cupom">cupom do alien</label>
+      <div class="linha-cupom">
+        <input type="text" id="cupom" placeholder="CB-XXXX" maxlength="8">
+        <button type="button" onclick="aplicarCupom()">aplicar</button>
+      </div>
+      <label for="indicacao">código de quem te indicou</label>
+      <div class="linha-cupom">
+        <input type="text" id="indicacao" placeholder="CB-XXXX" maxlength="8">
+        <button type="button" onclick="aplicarIndicacao()">aplicar</button>
+      </div>
+      <p class="msg" id="msgCupom"></p>
+    </div>
+
     <button class="botao-pedido" onclick="finalizar()">Enviar pedido no WhatsApp</button>
-    <p class="pix">A chave Pix vai na conversa, junto com o prazo. O motorista do app não espera.</p>
+    <p class="pix">A chave Pix vai na conversa, junto com o prazo.</p>
 
     <div id="confirmacao">
-      <p class="titulo-conf">Seu código de entrega</p>
+      <p class="titulo-conf">Número do pedido</p>
       <div class="codigo" id="codigo">——</div>
-      <p class="instrucao">Se o motorista pedir, informe este código. Ele pode não pedir — a entrega é por app.</p>
-      <button class="botao-entregador" onclick="avisarEntregador()">Enviar dados ao entregador</button>
+      <p class="instrucao">esse é o código do seu pedido — o motorista não espera</p>
+      <button class="botao-entregador" onclick="avisarEntregador()">Avisar o entregador</button>
     </div>
   </div>
 </aside>
@@ -728,88 +686,170 @@ header .hero-grade, header .marquee { position: relative; z-index: 2; }
       <strong>Cabo Brisa</strong>
       <p class="sub">Cabo Frio · Região dos Lagos · RJ</p>
       <a href="https://www.instagram.com/cabobrisa" target="_blank" rel="noopener">Instagram</a>
-      <small>maconha e cocaína · +18 · entrega por app em cabo frio</small>
+      <small>maconha e cocaína · +18 · entrega em cabo frio</small>
     </div>
     <div class="cacto">
-      <img src="logo.jpg" alt="Cabo Brisa" loading="lazy">
+      <img src="logo.jpg" data-n="0" onerror="tentarExt(this)" alt="Cabo Brisa" loading="lazy">
     </div>
   </div>
+
+  <p class="citacao">"Não leve a vida tão a sério, você não irá sair vivo dela 🍁."<span>Elbert Hubbard</span></p>
+
+  <p class="miudo">crianças não usem drogas.</p>
 </footer>
 
 <script>
 var CHAVE = 'cabo-brisa-carrinho-4';
-var MINIMO = 25;
-var GRATIS_ACIMA = 90;
+var CHAVE_PROMO = 'cb-fim-promo';
+var CHAVE_CUPOM = 'cb-cupom';
+var CHAVE_CUPONS = 'cb-cupons-dados';
+var CHAVE_AVAL = 'cb-avaliacoes';
+var MINIMO = 20;
+var TAXA = 5;
+var GRATIS_ACIMA = 70;
 var ENTREGADOR = '5521993408072';
+var CUPOM_VALOR = 5;
+var INDICACAO_VALOR = 2;
+var CUPONS_MAX = 5;
+var DIAS_CUPOM = 60;
+
+var PRODUTOS = {
+  maconha: { nome: 'Maconha', passo: 1, min: 1, precoG: function () { return emPromo() ? 10 : 12; } },
+  cocaina: { nome: 'Coca-Colaína', passo: 0.5, min: 0.5, precoG: function () { return 40; } }
+};
+
+var KITS = {
+  kit1: { nome: 'Kit Dupla', preco: 62, consome: { maconha: 5, cocaina: 0.5 } },
+  kit2: { nome: 'Kit Mês', preco: 145, consome: { maconha: 10, cocaina: 1 } }
+};
+
+var ESTOQUE = { maconha: 40, cocaina: 12 };
+
 var cart = [];
 var codigoAtual = '';
 var enderecoAtual = '';
-var freteAtual = null;
-
-/* zonas de frete por bairro */
-var ZONAS = {
-  5: ['centro', 'passagem', 'portinho', 'ogiva', 'vila nova', 'jardim excelso', 'sao bento'],
-  8: ['braga', 'gamboa', 'jardim esperanca', 'sao cristovao', 'monte alegre', 'nova california', 'parque burle', 'jardim caicara', 'manha'],
-  12: ['pero', 'foguete', 'tamoios', 'rasa', 'praia do rasa', 'jardim dos francezes', 'unamar', 'buzios']
-};
-
-function normaliza(t) {
-  return (t || '').toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, ' ').trim();
-}
-
-function calcularFrete(bairro) {
-  var b = normaliza(bairro);
-  if (!b) { return null; }
-  for (var zona in ZONAS) {
-    if (ZONAS[zona].indexOf(b) > -1) { return parseInt(zona, 10); }
-  }
-  return 'fora';
-}
+var notaAtual = 0;
+var desconto = 0;
 
 try {
   var salvo = JSON.parse(localStorage.getItem(CHAVE) || '[]');
-  if (salvo && salvo.length !== undefined) { cart = salvo; }
+  if (Array.isArray(salvo)) cart = salvo;
 } catch (e) { cart = []; }
 
-cart = cart.map(function (i) {
-  return { nome: i.nome, preco: i.preco, qtd: i.qtd || 1 };
-});
+/* ---------- promoção ---------- */
+function fimPromo() {
+  var s = localStorage.getItem(CHAVE_PROMO);
+  if (!s) {
+    var t = Date.now() + 14 * 86400000;
+    try { localStorage.setItem(CHAVE_PROMO, String(t)); } catch (e) {}
+    return t;
+  }
+  return parseInt(s, 10);
+}
 
-render();
+function emPromo() { return Date.now() < fimPromo(); }
 
-function add(nome, el) {
-  var preco = parseFloat(el.getAttribute('data-preco'));
-  var achou = null;
+function dataCurta(ts) {
+  var d = new Date(ts);
+  return d.getDate() + '/' + (d.getMonth() + 1);
+}
 
+/* ---------- estoque ---------- */
+function consumo() {
+  var c = { maconha: 0, cocaina: 0 };
   for (var i = 0; i < cart.length; i++) {
-    if (cart[i].nome === nome) { achou = cart[i]; break; }
+    var it = cart[i];
+    if (it.kit) {
+      c.maconha += KITS[it.kit].consome.maconha;
+      c.cocaina += KITS[it.kit].consome.cocaina;
+    } else {
+      c[it.id] += it.g;
+    }
+  }
+  return c;
+}
+
+function disponivel(id) { return Math.max(0, ESTOQUE[id] - consumo()[id]); }
+
+/* ---------- gramas ---------- */
+function passo(id, delta) {
+  var campo = document.getElementById('g-' + id);
+  var atual = parseFloat(campo.value) || PRODUTOS[id].min;
+  definir(id, atual + delta);
+}
+
+function digitar(id) { definir(id, parseFloat(document.getElementById('g-' + id).value)); }
+
+function definir(id, valor) {
+  var campo = document.getElementById('g-' + id);
+  var aviso = document.getElementById('aviso-' + id);
+  var max = disponivel(id);
+
+  if (isNaN(valor)) valor = PRODUTOS[id].min;
+  if (valor < PRODUTOS[id].min) valor = PRODUTOS[id].min;
+
+  if (valor > max) {
+    valor = max;
+    aviso.textContent = 'volume insuficiente — restam ' + numero(max) + ' g';
+  } else {
+    aviso.textContent = '';
   }
 
-  if (achou) { achou.qtd++; }
-  else { cart.push({ nome: nome, preco: preco, qtd: 1 }); }
+  campo.value = numero(valor);
+  atualizarCard(id);
+}
 
+function atualizarCard(id) {
+  var g = parseFloat(document.getElementById('g-' + id).value) || 0;
+  document.getElementById('item-' + id).textContent = formatar(g * PRODUTOS[id].precoG());
+  document.getElementById('estoque-' + id).textContent = 'restam ' + numero(disponivel(id)) + ' g';
+}
+
+function numero(v) { return String(v).replace('.', ','); }
+
+function add(id) {
+  var g = parseFloat(document.getElementById('g-' + id).value) || PRODUTOS[id].min;
+  var max = disponivel(id);
+
+  if (max <= 0) { alert('Sem estoque de ' + PRODUTOS[id].nome + ' agora.'); return; }
+  if (g > max) g = max;
+
+  var achou = null;
+  for (var i = 0; i < cart.length; i++) {
+    if (!cart[i].kit && cart[i].id === id) { achou = cart[i]; break; }
+  }
+
+  if (achou) achou.g = Math.min(achou.g + g, achou.g + max);
+  else cart.push({ id: id, g: g });
+
+  document.getElementById('g-' + id).value = numero(PRODUTOS[id].min);
+  document.getElementById('aviso-' + id).textContent = '';
   persistir();
   abrir();
 }
 
-function mudarQtd(indice, delta) {
-  cart[indice].qtd += delta;
-  if (cart[indice].qtd < 1) { cart.splice(indice, 1); }
+function addKit(chave) {
+  var k = KITS[chave];
+  var c = consumo();
+
+  if (c.maconha + k.consome.maconha > ESTOQUE.maconha || c.cocaina + k.consome.cocaina > ESTOQUE.cocaina) {
+    alert('Estoque insuficiente para esse kit agora.');
+    return;
+  }
+
+  cart.push({ kit: chave });
   persistir();
+  abrir();
 }
 
-function remover(indice) { cart.splice(indice, 1); persistir(); }
+function remover(i) { cart.splice(i, 1); persistir(); }
 
 function limpar() {
   cart = [];
   codigoAtual = '';
-  freteAtual = null;
+  desconto = 0;
   document.getElementById('confirmacao').classList.remove('mostrar');
-  document.getElementById('cep').value = '';
-  document.getElementById('freteInfo').innerHTML = '';
-  document.getElementById('freteInfo').className = 'frete-info';
+  document.getElementById('msgCupom').textContent = '';
   persistir();
 }
 
@@ -817,6 +857,59 @@ function persistir() {
   try { localStorage.setItem(CHAVE, JSON.stringify(cart)); } catch (e) {}
   render();
 }
+
+/* ---------- render ---------- */
+function render() {
+  var lista = document.getElementById('itens');
+  var subtotal = 0;
+  var html = '';
+
+  for (var i = 0; i < cart.length; i++) {
+    var it = cart[i];
+    var nome, detalhe, preco;
+
+    if (it.kit) {
+      nome = KITS[it.kit].nome;
+      detalhe = 'kit fechado';
+      preco = KITS[it.kit].preco;
+    } else {
+      nome = PRODUTOS[it.id].nome;
+      detalhe = numero(it.g) + ' g';
+      preco = it.g * PRODUTOS[it.id].precoG();
+    }
+
+    subtotal += preco;
+
+    html += '<div class="item">'
+      + '<span class="item-nome">' + nome + '<small>' + detalhe + '</small></span>'
+      + '<span class="item-preco">' + formatar(preco) + '</span>'
+      + '<button class="remover" onclick="remover(' + i + ')" aria-label="Remover">✕</button>'
+      + '</div>';
+  }
+
+  lista.innerHTML = html || '<p class="vazio">Nada por aqui ainda.<span>Escolha no cardápio.</span></p>';
+
+  var taxa = subtotal >= GRATIS_ACIMA ? 0 : (subtotal > 0 ? TAXA : 0);
+  if (desconto > subtotal) desconto = subtotal;
+  var total = Math.max(0, subtotal + taxa - desconto);
+
+  document.getElementById('subtotal').innerHTML = formatar(subtotal);
+  document.getElementById('entrega').innerHTML =
+    taxa === 0 && subtotal > 0 ? '<span class="gratis">Grátis</span>' : formatar(taxa);
+
+  document.getElementById('linhaDesconto').style.display = desconto > 0 ? 'flex' : 'none';
+  document.getElementById('desconto').innerHTML = '- ' + formatar(desconto);
+  document.getElementById('total').innerHTML = formatar(total);
+
+  document.getElementById('resumo').innerHTML = subtotal > 0
+    ? formatar(total) + ' · ver pedido'
+    : 'carrinho vazio';
+
+  atualizarCard('maconha');
+  atualizarCard('cocaina');
+}
+
+function formatar(v) { return 'R$ ' + v.toFixed(2).replace('.', ','); }
 
 function alternar() {
   var c = document.getElementById('carrinho');
@@ -833,199 +926,221 @@ function abrir() {
   }
 }
 
-function render() {
-  var lista = document.getElementById('itens');
-  var subtotal = 0;
-  var unidades = 0;
-  var html = '';
+/* ---------- cupom ---------- */
+function pegarCupom() {
+  var caixa = document.getElementById('cupomCaixa');
+  var cod = document.getElementById('cupomCod');
+  var val = document.getElementById('cupomVal');
+  var existente = null;
 
-  for (var i = 0; i < cart.length; i++) {
-    var sub = cart[i].preco * cart[i].qtd;
-    subtotal += sub;
-    unidades += cart[i].qtd;
+  try { existente = JSON.parse(localStorage.getItem(CHAVE_CUPOM) || 'null'); } catch (e) {}
 
-    html += '<div class="item">'
-      + '<span class="item-nome">' + cart[i].nome + '</span>'
-      + '<div class="item-linha">'
-      +   '<div class="qtd">'
-      +     '<button onclick="mudarQtd(' + i + ', -1)" aria-label="Diminuir">−</button>'
-      +     '<span>' + cart[i].qtd + '</span>'
-      +     '<button onclick="mudarQtd(' + i + ', 1)" aria-label="Aumentar">+</button>'
-      +   '</div>'
-      +   '<span class="item-preco">' + formatar(sub) + '</span>'
-      +   '<button class="remover" onclick="remover(' + i + ')" aria-label="Remover">✕</button>'
-      + '</div>'
-      + '</div>';
+  if (existente && existente.codigo) {
+    caixa.classList.add('mostrar');
+    cod.textContent = existente.codigo;
+    val.textContent = 'R$ 5 de desconto · válido até ' + dataCurta(existente.validade);
+    return;
   }
 
-  lista.innerHTML = html || '<p class="vazio">Nada por aqui ainda.<span>Escolha um item do cardápio.</span></p>';
+  var dados = JSON.parse(localStorage.getItem(CHAVE_CUPONS) || '{"usados":0}');
 
-  var gratis = subtotal >= GRATIS_ACIMA;
-  var taxa = 0;
-
-  if (subtotal > 0 && !gratis && typeof freteAtual === 'number') {
-    taxa = freteAtual;
+  if (dados.usados >= CUPONS_MAX) {
+    caixa.classList.add('mostrar');
+    cod.textContent = 'ACABOU';
+    val.textContent = 'Os cinco cupons já foram liberados. Fica para a próxima.';
+    return;
   }
 
-  var total = subtotal + taxa;
+  var letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var codigo = 'CB-';
+  for (var i = 0; i < 4; i++) codigo += letras.charAt(Math.floor(Math.random() * letras.length));
 
-  document.getElementById('subtotal').innerHTML = formatar(subtotal);
+  var validade = Date.now() + DIAS_CUPOM * 86400000;
+  try {
+    localStorage.setItem(CHAVE_CUPOM, JSON.stringify({ codigo: codigo, validade: validade }));
+    localStorage.setItem(CHAVE_CUPONS, JSON.stringify({ usados: dados.usados + 1 }));
+  } catch (e) {}
 
-  if (subtotal === 0) {
-    document.getElementById('entrega').innerHTML = '—';
-  } else if (gratis) {
-    document.getElementById('entrega').innerHTML = '<span class="gratis">Grátis</span>';
-  } else if (freteAtual === 'fora') {
-    document.getElementById('entrega').innerHTML = '<span class="a-combinar">a combinar</span>';
-  } else if (typeof freteAtual === 'number') {
-    document.getElementById('entrega').innerHTML = formatar(freteAtual);
-  } else {
-    document.getElementById('entrega').innerHTML = '<span class="a-combinar">informe o CEP</span>';
-  }
-
-  document.getElementById('total').innerHTML = formatar(total);
-
-  document.getElementById('resumo').innerHTML = subtotal > 0
-    ? (unidades === 1 ? '1 item · ' : unidades + ' itens · ') + formatar(total)
-    : 'carrinho vazio';
+  caixa.classList.add('mostrar');
+  cod.textContent = codigo;
+  val.textContent = 'R$ 5 de desconto · válido até ' + dataCurta(validade);
 }
 
-function formatar(valor) { return 'R$ ' + valor.toFixed(2).replace('.', ','); }
+function aplicarCupom() {
+  var campo = document.getElementById('cupom');
+  var msg = document.getElementById('msgCupom');
+  var salvo = null;
+  try { salvo = JSON.parse(localStorage.getItem(CHAVE_CUPOM) || 'null'); } catch (e) {}
 
+  var digitado = (campo.value || '').trim().toUpperCase();
+
+  if (!salvo || !salvo.codigo) { msg.textContent = 'Você ainda não pegou cupom. Clique no alien.'; return; }
+  if (digitado !== salvo.codigo) { msg.textContent = 'Cupom não confere.'; return; }
+  if (Date.now() > salvo.validade) { msg.textContent = 'Cupom vencido.'; return; }
+
+  desconto = CUPOM_VALOR;
+  msg.textContent = 'Cupom aplicado: R$ 5 de desconto.';
+  persistir();
+}
+
+function aplicarIndicacao() {
+  var campo = document.getElementById('indicacao');
+  var msg = document.getElementById('msgCupom');
+  var valor = (campo.value || '').trim().toUpperCase();
+
+  if (!/^CB-[A-Z0-9]{4}$/.test(valor)) { msg.textContent = 'Código de indicação inválido.'; return; }
+
+  desconto = (desconto === CUPOM_VALOR ? CUPOM_VALOR : 0) + INDICACAO_VALOR;
+  msg.textContent = 'Indicação aplicada: R$ 2 de desconto.';
+  persistir();
+}
+
+/* ---------- avaliações ---------- */
+function nota(n) {
+  notaAtual = n;
+  var b = document.getElementById('estrelas').querySelectorAll('button');
+  for (var i = 0; i < b.length; i++) b[i].className = i < n ? 'on' : '';
+}
+
+function enviarAval() {
+  var texto = document.getElementById('comentario').value.trim();
+
+  if (!notaAtual) { alert('Escolha uma nota de 1 a 5 estrelas.'); return; }
+  if (texto.length < 3) { alert('Escreva um comentário.'); return; }
+
+  var lista = [];
+  try { lista = JSON.parse(localStorage.getItem(CHAVE_AVAL) || '[]'); } catch (e) { lista = []; }
+
+  lista.unshift({ n: notaAtual, t: texto, d: Date.now() });
+
+  try { localStorage.setItem(CHAVE_AVAL, JSON.stringify(lista.slice(0, 40))); } catch (e) {}
+
+  notaAtual = 0;
+  nota(0);
+  document.getElementById('comentario').value = '';
+  mostrarAval();
+}
+
+function mostrarAval() {
+  var alvo = document.getElementById('listaAval');
+  var lista = [];
+  try { lista = JSON.parse(localStorage.getItem(CHAVE_AVAL) || '[]'); } catch (e) { lista = []; }
+
+  if (!lista.length) {
+    alvo.innerHTML = '<p class="aval-vazio">Nenhuma avaliação ainda. Seja o primeiro.</p>';
+    return;
+  }
+
+  var html = '';
+  for (var i = 0; i < lista.length; i++) {
+    var estrelas = '';
+    for (var j = 0; j < 5; j++) estrelas += j < lista[i].n ? '★' : '☆';
+    html += '<div class="aval-item">'
+      + '<div class="quem"><b>anônimo</b> · <span class="estrelinhas">' + estrelas + '</span> · ' + dataCurta(lista[i].d) + '</div>'
+      + '<p>' + lista[i].t.replace(/</g, '&lt;') + '</p>'
+      + '</div>';
+  }
+  alvo.innerHTML = html;
+}
+
+/* ---------- finalizar ---------- */
 function gerarCodigo() {
   var letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
-  var numeros = '23456789';
+  var nums = '23456789';
   var a = '';
-  for (var i = 0; i < 3; i++) { a += letras.charAt(Math.floor(Math.random() * letras.length)); }
-  for (var j = 0; j < 2; j++) { a += numeros.charAt(Math.floor(Math.random() * numeros.length)); }
+  for (var i = 0; i < 3; i++) a += letras.charAt(Math.floor(Math.random() * letras.length));
+  for (var j = 0; j < 2; j++) a += nums.charAt(Math.floor(Math.random() * nums.length));
   return a;
 }
 
-/* ---------- CEP e frete ---------- */
-document.getElementById('cep').addEventListener('input', function () {
-  var v = this.value.replace(/\D/g, '').slice(0, 8);
-  this.value = v.replace(/(\d{5})(\d)/, '$1-$2');
-  if (v.length === 8) { buscarCep(v); }
-});
-
-function buscarCep(cep) {
-  var info = document.getElementById('freteInfo');
-  info.className = 'frete-info';
-  info.innerHTML = 'Buscando endereço...';
-
-  fetch('https://viacep.com.br/ws/' + cep + '/json/')
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      if (d.erro) {
-        info.className = 'frete-info fora';
-        info.innerHTML = 'CEP não encontrado. Confira o número.';
-        return;
-      }
-      document.getElementById('rua').value = d.logradouro || '';
-      document.getElementById('bairro').value = d.bairro || '';
-      atualizarFrete();
-    })
-    .catch(function () {
-      info.className = 'frete-info fora';
-      info.innerHTML = 'Não deu para consultar o CEP. Digite o bairro.';
-    });
-}
-
-document.getElementById('bairro').addEventListener('input', atualizarFrete);
-
-function atualizarFrete() {
-  var bairro = document.getElementById('bairro').value;
-  var info = document.getElementById('freteInfo');
-  freteAtual = calcularFrete(bairro);
-  info.className = 'frete-info';
-
-  if (freteAtual === null) {
-    info.innerHTML = '';
-  } else if (freteAtual === 'fora') {
-    info.className = 'frete-info fora';
-    info.innerHTML = 'Fora da área de entrega — o frete é combinado no WhatsApp.';
-  } else {
-    info.className = 'frete-info ok';
-    info.innerHTML = 'Frete para ' + bairro + ': ' + formatar(freteAtual);
-  }
-
-  render();
-}
-
 function finalizar() {
-  if (!cart.length) { alert('Seu pedido está vazio. Escolha um item do cardápio primeiro.'); return; }
+  if (!cart.length) { alert('Seu pedido está vazio.'); return; }
 
   var subtotal = 0;
-  for (var i = 0; i < cart.length; i++) { subtotal += cart[i].preco * cart[i].qtd; }
+  for (var i = 0; i < cart.length; i++) {
+    var it = cart[i];
+    subtotal += it.kit ? KITS[it.kit].preco : it.g * PRODUTOS[it.id].precoG();
+  }
 
   if (subtotal < MINIMO) {
     alert('O pedido mínimo é de ' + formatar(MINIMO) + '. Faltam ' + formatar(MINIMO - subtotal) + '.');
     return;
   }
 
-  var cep = document.getElementById('cep').value.replace(/\D/g, '');
-  var rua = document.getElementById('rua').value.replace(/^\s+|\s+$/g, '');
-  var numero = document.getElementById('numero').value.replace(/^\s+|\s+$/g, '');
-  var bairro = document.getElementById('bairro').value.replace(/^\s+|\s+$/g, '');
-  var complemento = document.getElementById('complemento').value.replace(/^\s+|\s+$/g, '');
-  var referencia = document.getElementById('referencia').value.replace(/^\s+|\s+$/g, '');
+  var rua = document.getElementById('rua').value.trim();
+  var numeroCampo = document.getElementById('numero').value.trim();
+  var bairro = document.getElementById('bairro').value.trim();
+  var complemento = document.getElementById('complemento').value.trim();
+  var referencia = document.getElementById('referencia').value.trim();
 
-  if (!rua || !numero || !bairro) {
-    alert('Preencha o CEP, a rua, o número e o bairro.');
-    document.getElementById(!rua ? 'cep' : !numero ? 'numero' : 'bairro').focus();
+  if (!rua || !numeroCampo || !bairro) {
+    alert('Preencha rua, número e bairro.');
+    document.getElementById(!rua ? 'rua' : !numeroCampo ? 'numero' : 'bairro').focus();
     return;
-  }
-
-  if (freteAtual === null) {
-    alert('Informe o CEP para calcular o frete.');
-    document.getElementById('cep').focus();
-    return;
-  }
-
-  if (freteAtual === 'fora') {
-    if (!confirm('Esse bairro está fora da área. O frete será combinado no WhatsApp. Continuar?')) { return; }
   }
 
   codigoAtual = gerarCodigo();
 
-  var linhaEndereco = rua + ', ' + numero;
-  if (complemento) { linhaEndereco += ' — ' + complemento; }
-  linhaEndereco += ' · ' + bairro;
-  if (cep) { linhaEndereco += ' · CEP ' + cep.replace(/(\d{5})(\d)/, '$1-$2'); }
-  if (referencia) { linhaEndereco += ' · ref.: ' + referencia; }
-  enderecoAtual = linhaEndereco;
+  var endereco = rua + ', ' + numeroCampo;
+  if (complemento) endereco += ' — ' + complemento;
+  endereco += ' · ' + bairro;
+  if (referencia) endereco += ' · ref.: ' + referencia;
+  enderecoAtual = endereco;
 
-  var gratis = subtotal >= GRATIS_ACIMA;
-  var taxa = gratis ? 0 : (typeof freteAtual === 'number' ? freteAtual : 0);
-  var total = subtotal + taxa;
+  var taxa = subtotal >= GRATIS_ACIMA ? 0 : TAXA;
+  if (desconto > subtotal) desconto = subtotal;
+  var total = Math.max(0, subtotal + taxa - desconto);
 
   var msg = 'Olá! Quero fazer um pedido na Cabo Brisa:\n\n';
-
   for (var j = 0; j < cart.length; j++) {
-    msg += '• ' + cart[j].qtd + 'x ' + cart[j].nome + ' — ' + formatar(cart[j].preco * cart[j].qtd) + '\n';
+    var it2 = cart[j];
+    msg += it2.kit
+      ? '• ' + KITS[it2.kit].nome + ' — ' + formatar(KITS[it2.kit].preco) + '\n'
+      : '• ' + numero(it2.g) + ' g de ' + PRODUTOS[it2.id].nome + ' — ' + formatar(it2.g * PRODUTOS[it2.id].precoG()) + '\n';
   }
 
   msg += '\nSubtotal: ' + formatar(subtotal);
-  msg += '\nEntrega: ' + (gratis ? 'grátis' : (freteAtual === 'fora' ? 'a combinar' : formatar(taxa)));
+  msg += '\nEntrega: ' + (taxa === 0 ? 'grátis' : formatar(taxa));
+  if (desconto > 0) msg += '\nDesconto: - ' + formatar(desconto);
   msg += '\nTotal: ' + formatar(total);
-  msg += '\n\nEndereço: ' + linhaEndereco;
-  msg += '\n\nCódigo de entrega: ' + codigoAtual;
+  msg += '\n\nEndereço: ' + endereco;
+  msg += '\n\nNúmero do pedido: ' + codigoAtual;
   msg += '\n\nPago no Pix, envio o comprovante.';
 
-  document.getElementById('codigo').innerHTML = codigoAtual;
+  document.getElementById('codigo').textContent = codigoAtual;
   document.getElementById('confirmacao').classList.add('mostrar');
 
   window.open('https://wa.me/5522981551818?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function avisarEntregador() {
-  if (!codigoAtual) { return; }
-  var msg = 'Entrega Cabo Brisa\n\n';
-  msg += 'Endereço: ' + enderecoAtual + '\n';
-  msg += 'Código de confirmação: ' + codigoAtual + '\n\n';
-  msg += 'Confira o código na porta antes de entregar.';
+  if (!codigoAtual) return;
+  var msg = 'Entrega Cabo Brisa\n\nEndereço: ' + enderecoAtual + '\nNúmero do pedido: ' + codigoAtual + '\n\nConfira o número na porta antes de entregar. O motorista não espera.';
   window.open('https://wa.me/' + ENTREGADOR + '?text=' + encodeURIComponent(msg), '_blank');
 }
+
+function tentarExt(img) {
+  var fila = ['logo.jpg', 'logo.png', 'logo.jpeg', 'logo.webp', 'logo.JPG'];
+  var n = parseInt(img.getAttribute('data-n') || '0', 10) + 1;
+  img.setAttribute('data-n', n);
+  if (n < fila.length) img.src = fila[n];
+}
+
+/* ---------- início ---------- */
+if (emPromo()) {
+  document.getElementById('faixaPromo').textContent =
+    'promoção de inauguração: R$ 10 o grama só até ' + dataCurta(fimPromo());
+} else {
+  document.getElementById('faixaPromo').textContent = 'preço oficial: R$ 12 o grama · entrega na porta';
+  document.getElementById('antigo-maconha').style.display = 'none';
+}
+
+document.getElementById('preco-maconha').textContent = 'R$ ' + (emPromo() ? 10 : 12);
+document.getElementById('item-maconha').textContent = formatar(PRODUTOS.maconha.precoG());
+document.getElementById('item-cocaina').textContent = formatar(0.5 * 40);
+
+render();
+mostrarAval();
 </script>
 
 </body>
