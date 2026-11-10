@@ -5,11 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0E0618">
-<title>Cabo Brisa — maconha e cocaína · Cabo Frio</title>
-<meta name="description" content="Maconha por grama e cocaína entregues na sua porta em Cabo Frio. Pedido pelo site, Pix e número de pedido.">
-<meta property="og:title" content="Cabo Brisa — maconha e cocaína">
-<meta property="og:description" content="Delivery de maconha e cocaína em Cabo Frio. Pix, entrega na porta.">
+<title>Cabo Brisa — maconha em Cabo Frio</title>
+<meta name="description" content="Maconha por grama entregue na sua porta em Cabo Frio. Frete por CEP, pagamento no Pix e número de pedido.">
+<meta property="og:title" content="Cabo Brisa — maconha em Cabo Frio">
+<meta property="og:description" content="Delivery de maconha em Cabo Frio. Pix, entrega na porta.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://cabo-brisa.daotraja3.workers.dev/">
+<meta property="og:image" content="https://cabo-brisa.daotraja3.workers.dev/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,13 +72,23 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visib
 @keyframes rolar { to { transform: translateX(-50%); } }
 
 header {
-  position: relative; padding: 34px 22px 0; overflow: hidden;
+  position: relative; padding: 34px 22px 30px; overflow: hidden; min-height: 330px;
   border-bottom: 2px solid var(--neon);
   background: radial-gradient(80% 70% at 8% -10%, rgba(91,42,133,.55), transparent 62%),
               radial-gradient(70% 60% at 100% 10%, rgba(143,224,31,.12), transparent 60%);
 }
 
-.hero-grade { position: relative; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr .7fr; gap: 18px; align-items: end; }
+.boneco {
+  position: absolute; right: -8px; bottom: -4px; width: clamp(120px, 24vw, 225px);
+  opacity: .92; mix-blend-mode: screen; pointer-events: none; z-index: 1;
+  animation: flutuar 7s ease-in-out infinite;
+}
+@keyframes flutuar {
+  0%, 100% { transform: translate(0, 0) rotate(-1.5deg); }
+  50% { transform: translate(-7px, -15px) rotate(2deg); }
+}
+
+.hero-grade { position: relative; max-width: 1120px; margin: 0 auto; z-index: 2; }
 
 .etiquetas { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
 
@@ -94,28 +107,28 @@ h1 {
 }
 h1 span { display: block; color: var(--texto); text-shadow: 0 0 20px rgba(217,233,201,.35); }
 
-header .chamada { font-size: clamp(15px, 2.2vw, 19px); max-width: 34ch; margin: 22px 0 0; color: var(--texto); }
+header .chamada { font-size: clamp(15px, 2.2vw, 19px); max-width: 30ch; margin: 22px 0 0; color: var(--texto); position: relative; z-index: 2; }
 header .chamada b { color: var(--neon); text-shadow: 0 0 10px rgba(184,240,74,.6); }
 
 .hero-cta {
-  display: inline-block; margin: 24px 0 34px; background: var(--neon); color: var(--fundo);
+  display: inline-block; margin: 24px 0 0; background: var(--neon); color: var(--fundo);
   font-family: "Anton", Impact, sans-serif; font-size: 15px; letter-spacing: .1em; text-transform: uppercase;
   padding: 13px 26px; border-radius: 999px; text-decoration: none; border: none;
   box-shadow: 0 0 16px rgba(184,240,74,.6), 0 0 40px rgba(184,240,74,.25);
-  transition: transform .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, box-shadow .18s ease; position: relative; z-index: 2;
 }
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 0 22px rgba(184,240,74,.85), 0 0 60px rgba(184,240,74,.4); }
 
 .cacto-hero {
-  align-self: end; justify-self: center; width: 100%; max-width: 230px; margin-bottom: 30px;
-  aspect-ratio: 1; overflow: hidden; border-radius: 20px; border: 2px solid var(--neon);
-  box-shadow: 0 0 0 1px rgba(184,240,74,.25), 0 0 34px rgba(184,240,74,.4), 0 0 80px rgba(255,106,69,.18);
+  width: 96px; margin: 26px 0 0; aspect-ratio: 1; overflow: hidden; border-radius: 14px;
+  border: 2px solid var(--neon); position: relative; z-index: 2;
+  box-shadow: 0 0 0 1px rgba(184,240,74,.25), 0 0 28px rgba(184,240,74,.35);
   background: #6E6E6E;
 }
 .cacto-hero img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.3); display: block; }
 
 .aviso { background: var(--roxo-2); border-bottom: 2px solid var(--neon); text-align: center; padding: 12px 18px;
-  font-family: "Anton", Impact, sans-serif; font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  font-family: "Anton", Impact, sans-serif; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
   color: var(--neon); text-shadow: 0 0 8px rgba(184,240,74,.6); }
 
 main { padding: 0 20px; }
@@ -142,6 +155,7 @@ main { padding: 0 20px; }
 .estoque-tag { position: absolute; bottom: -13px; right: 14px; background: var(--coral); color: #14060A;
   font-family: "Anton", Impact, sans-serif; font-size: 11px; letter-spacing: .06em; padding: 5px 11px;
   border-radius: 999px; transform: rotate(3deg); box-shadow: 0 0 16px rgba(255,106,69,.45); }
+.estoque-tag.zero { background: #6B5C7A; color: #F0E9F7; box-shadow: none; }
 
 .corpo { padding: 26px 20px 22px; display: flex; flex-direction: column; flex: 1; }
 
@@ -159,9 +173,7 @@ main { padding: 0 20px; }
 
 .pedaco { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 
-.gramas {
-  display: flex; align-items: center; border: 2px solid var(--roxo-3); border-radius: 999px; overflow: hidden;
-}
+.gramas { display: flex; align-items: center; border: 2px solid var(--roxo-3); border-radius: 999px; overflow: hidden; }
 .gramas button { background: var(--roxo-2); border: none; color: var(--neon); width: 30px; height: 32px;
   font-size: 16px; line-height: 1; cursor: pointer; padding: 0; }
 .gramas button:hover:not(:disabled) { background: var(--neon); color: var(--fundo); }
@@ -180,7 +192,7 @@ main { padding: 0 20px; }
   font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
   transition: background .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.card button.add:hover, .kit button:hover { background: var(--neon); color: var(--fundo); box-shadow: 0 0 22px rgba(184,240,74,.6); }
+.card button.add:hover:not(:disabled), .kit button:hover:not(:disabled) { background: var(--neon); color: var(--fundo); box-shadow: 0 0 22px rgba(184,240,74,.6); }
 .card button.add:disabled, .kit button:disabled { opacity: .45; cursor: not-allowed; }
 
 .comoLer { background: var(--roxo-2); border: 2px solid var(--neon); border-radius: 20px; padding: 30px 26px;
@@ -209,7 +221,6 @@ main { padding: 0 20px; }
 .kit .valor b { display: block; font-family: "Anton", Impact, sans-serif; font-size: 30px; color: var(--neon);
   font-weight: 400; text-shadow: 0 0 10px rgba(184,240,74,.6); }
 
-/* avaliações */
 .aval { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
 .form-aval { background: var(--roxo-2); border: 2px solid var(--roxo-3); border-radius: 18px; padding: 22px; }
 .form-aval label { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
@@ -235,7 +246,17 @@ main { padding: 0 20px; }
 .aval-item p { margin: 0; font-size: 14px; color: var(--texto); }
 .aval-vazio { font-size: 14px; color: var(--suave); }
 
-/* alien / cupom */
+.indique { background: var(--roxo-2); border: 2px dashed var(--neon); border-radius: 18px; padding: 24px; text-align: center; }
+.indique .rotulo { margin: 0 0 8px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--suave); font-weight: 700; }
+.meu-cod { font-family: "Anton", Impact, sans-serif; font-size: 34px; letter-spacing: .18em; color: var(--neon);
+  text-shadow: 0 0 16px rgba(184,240,74,.8); }
+.ind-acoes { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+.ind-acoes button { background: transparent; border: 2px solid var(--neon); color: var(--neon); padding: 10px 18px;
+  border-radius: 999px; cursor: pointer; font-family: "Anton", Impact, sans-serif; font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; }
+.ind-acoes button:hover { background: var(--neon); color: var(--fundo); }
+.ind-msg { margin: 12px 0 0; font-size: 12px; color: var(--suave); min-height: 16px; }
+
 .alien-bloco { background: linear-gradient(170deg, #1C0F2E, #12081F); border: 2px solid var(--neon);
   border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: .9fr 1.1fr; margin-top: 10px;
   box-shadow: 0 0 40px rgba(184,240,74,.18); }
@@ -271,7 +292,6 @@ main { padding: 0 20px; }
   font-size: 14px; color: var(--texto); background: rgba(184,240,74,.06); }
 .nota b { color: var(--neon); }
 
-/* carrinho */
 #carrinho { position: fixed; bottom: 0; left: 0; right: 0; background: var(--roxo);
   border-top: 2px solid var(--neon); border-radius: 18px 18px 0 0;
   box-shadow: 0 -14px 40px -14px rgba(0,0,0,.8); z-index: 20; overflow-y: auto; max-height: 88vh; }
@@ -306,6 +326,7 @@ main { padding: 0 20px; }
 .linhas .total b { font-family: "Anton", Impact, sans-serif; font-size: 24px; color: var(--neon); font-weight: 400;
   text-shadow: 0 0 10px rgba(184,240,74,.6); }
 .gratis { color: var(--neon); font-weight: 700; }
+.calculando { color: var(--suave); }
 
 .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
 .campo { width: 100%; padding: 11px 13px; border-radius: 10px; border: 2px solid var(--roxo-3);
@@ -314,11 +335,23 @@ main { padding: 0 20px; }
 .campo:focus { outline: none; border-color: var(--neon); box-shadow: 0 0 12px rgba(184,240,74,.25); }
 .campo.largo { grid-column: 1 / -1; margin-bottom: 12px; }
 
+.frete { margin: 0 0 12px; border-top: 1px solid var(--roxo-3); padding-top: 12px; }
+.frete label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); margin-bottom: 6px; }
+.frete .linha-cep { display: flex; gap: 8px; }
+.frete input { flex: 1; padding: 10px 12px; border-radius: 9px; border: 2px solid var(--roxo-3);
+  background: var(--fundo); color: var(--texto); font-family: inherit; font-size: 13px; }
+.frete input:focus { outline: none; border-color: var(--neon); }
+.frete button { background: var(--roxo-2); border: 2px solid var(--neon); color: var(--neon);
+  padding: 0 14px; border-radius: 9px; cursor: pointer; font-family: inherit; font-size: 11px;
+  letter-spacing: .08em; text-transform: uppercase; }
+.frete button:hover { background: var(--neon); color: var(--fundo); }
+.frete .msg { font-size: 11px; color: var(--suave); min-height: 14px; margin: 6px 0 0; }
+
 .extra { margin: 12px 0; border-top: 1px solid var(--roxo-3); padding-top: 12px; }
 .extra label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); margin-bottom: 6px; }
 .extra .linha-cupom { display: flex; gap: 8px; margin-bottom: 10px; }
 .extra input { flex: 1; padding: 10px 12px; border-radius: 9px; border: 2px solid var(--roxo-3);
-  background: var(--fundo); color: var(--texto); font-family: inherit; font-size: 13px; }
+  background: var(--fundo); color: var(--texto); font-family: inherit; font-size: 13px; text-transform: uppercase; }
 .extra input:focus { outline: none; border-color: var(--neon); }
 .extra button { background: var(--roxo-2); border: 2px solid var(--neon); color: var(--neon);
   padding: 0 14px; border-radius: 9px; cursor: pointer; font-family: inherit; font-size: 11px;
@@ -374,9 +407,10 @@ main { padding: 0 20px; }
 }
 
 @media (max-width: 640px) {
-  .hero-grade { grid-template-columns: 1fr; }
-  .cacto-hero { max-width: 96px; justify-self: start; margin: 22px 0 0; }
-  header { padding-bottom: 30px; }
+  header { min-height: 300px; padding-bottom: 26px; }
+  .boneco { width: 116px; right: -16px; bottom: 0; opacity: .8; }
+  header .chamada { max-width: 22ch; }
+  .cacto-hero { width: 84px; margin-top: 22px; }
 }
 
 @media (max-width: 480px) { .produtos, .kits { grid-template-columns: 1fr; } }
@@ -396,26 +430,27 @@ main { padding: 0 20px; }
 
 <div class="marquee" aria-hidden="true">
   <div>
-    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>preço por grama</span><span>·</span><span>+18</span><span>·</span>
-    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>preço por grama</span><span>·</span><span>+18</span><span>·</span>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
+    <span>cabo frio</span><span>·</span><span>entrega na porta</span><span>·</span><span>pix</span><span>·</span><span>pesado na hora</span><span>·</span><span>+18</span><span>·</span>
   </div>
 </div>
 
 <header>
+  <img class="boneco" src="boneco.png" data-b="0" onerror="tentarBoneco(this)" alt="" aria-hidden="true">
+
   <div class="hero-grade">
-    <div>
-      <div class="etiquetas">
-        <span class="etq cheia">+18</span>
-        <span class="etq">cabo frio · rj</span>
-        <span class="etq promo">1 g a R$ 10 na inauguração</span>
-      </div>
-
-      <h1>Cabo<span>Brisa</span></h1>
-
-      <p class="chamada"><b>Maconha por grama</b> e cocaína em papelote, entregues na sua porta. Você escolhe a quantidade e paga no Pix.</p>
-
-      <a class="hero-cta" href="#cardapio">ver o cardápio</a>
+    <div class="etiquetas">
+      <span class="etq cheia">+18</span>
+      <span class="etq">cabo frio · rj</span>
+      <span class="etq">entrega rápida</span>
+      <span class="etq promo" id="tagPromo">1 g a R$ 10 na inauguração</span>
     </div>
+
+    <h1>Cabo<span>Brisa</span></h1>
+
+    <p class="chamada"><b>Maconha</b> entregue na sua porta, pesada na hora. Você escolhe os gramas e paga no Pix.</p>
+
+    <a class="hero-cta" href="#cardapio">ver o cardápio</a>
 
     <div class="cacto-hero">
       <img src="logo.jpg" data-n="0" onerror="tentarExt(this)" alt="Cabo Brisa">
@@ -423,13 +458,13 @@ main { padding: 0 20px; }
   </div>
 </header>
 
-<div class="aviso" id="faixaPromo">promoção de inauguração: R$ 10 o grama só nas duas primeiras semanas</div>
+<div class="aviso" id="faixaPromo"></div>
 
 <main>
   <section class="secao" id="cardapio">
     <div class="topo-secao">
       <h2 class="led">O cardápio</h2>
-      <p>Escolha a quantidade em gramas. O preço oficial é R$ 12 o grama — na inauguração, R$ 10.</p>
+      <p>Escolha a quantidade em gramas. Preço oficial R$ 12 o grama — na inauguração, R$ 10.</p>
     </div>
 
     <div class="produtos">
@@ -437,7 +472,7 @@ main { padding: 0 20px; }
         <div class="card-topo">
           <span class="selo">do lote</span>
           🌿
-          <span class="estoque-tag" id="estoque-maconha">restam 40 g</span>
+          <span class="estoque-tag" id="estoque-maconha">restam 8 g</span>
         </div>
         <div class="corpo">
           <h3>Maconha</h3>
@@ -449,7 +484,7 @@ main { padding: 0 20px; }
             <span class="por-g">por grama</span>
           </div>
           <div class="pedaco">
-            <div class="gramas">
+            <div class="gramas" id="gramas-maconha">
               <button type="button" onclick="passo('maconha', -1)" aria-label="Diminuir">−</button>
               <input type="number" id="g-maconha" value="1" min="1" step="1" oninput="digitar('maconha')" aria-label="Gramas de maconha">
               <span class="un">g</span>
@@ -466,7 +501,7 @@ main { padding: 0 20px; }
         <div class="card-topo">
           <span class="selo">bate rápido</span>
           ❄
-          <span class="estoque-tag" id="estoque-cocaina">restam 12 g</span>
+          <span class="estoque-tag zero" id="estoque-cocaina">esgotado</span>
         </div>
         <div class="corpo">
           <h3>Coca-Colaína</h3>
@@ -477,7 +512,7 @@ main { padding: 0 20px; }
             <span class="por-g">por grama · mínimo 0,5 g</span>
           </div>
           <div class="pedaco">
-            <div class="gramas">
+            <div class="gramas" id="gramas-cocaina">
               <button type="button" onclick="passo('cocaina', -0.5)" aria-label="Diminuir">−</button>
               <input type="number" id="g-cocaina" value="0.5" min="0.5" step="0.5" oninput="digitar('cocaina')" aria-label="Gramas de cocaína">
               <span class="un">g</span>
@@ -506,16 +541,16 @@ main { padding: 0 20px; }
   <section class="secao">
     <div class="topo-secao">
       <h2 class="led">Kits</h2>
-      <p>Quantidade fechada, com desconto. O valor já vai aplicado no carrinho.</p>
+      <p id="notaKits">Quantidade fechada, com desconto. O valor já vai aplicado no carrinho.</p>
     </div>
 
     <div class="kits">
       <div class="kit">
-        <span class="economia">economize R$ 8</span>
+        <span class="economia">economize R$ 18</span>
         <h4>Kit Dupla</h4>
         <p>5 g de maconha + 0,5 g de cocaína</p>
-        <p class="valor"><s>R$ 70</s><b>R$ 62</b></p>
-        <button onclick="addKit('kit1')">Adicionar kit</button>
+        <p class="valor"><s>R$ 80</s><b>R$ 62</b></p>
+        <button id="kit-kit1" onclick="addKit('kit1')">Adicionar kit</button>
       </div>
 
       <div class="kit">
@@ -523,8 +558,25 @@ main { padding: 0 20px; }
         <h4>Kit Mês</h4>
         <p>10 g de maconha + 1 g de cocaína</p>
         <p class="valor"><s>R$ 160</s><b>R$ 145</b></p>
-        <button onclick="addKit('kit2')">Adicionar kit</button>
+        <button id="kit-kit2" onclick="addKit('kit2')">Adicionar kit</button>
       </div>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="topo-secao">
+      <h2 class="led">Indique e ganhe</h2>
+      <p>Esse é o seu código, só seu. Quem usar leva R$ 2 de desconto — e você recebe R$ 2 no Pix quando o pedido sair.</p>
+    </div>
+
+    <div class="indique">
+      <p class="rotulo">seu código de indicação</p>
+      <div class="meu-cod" id="meuCod">CB-0000</div>
+      <div class="ind-acoes">
+        <button type="button" onclick="copiarLink()">copiar link</button>
+        <button type="button" onclick="compartilhar()">enviar no WhatsApp</button>
+      </div>
+      <p class="ind-msg" id="msgInd">Manda o link. O desconto entra sozinho no carrinho de quem abrir.</p>
     </div>
   </section>
 
@@ -562,7 +614,7 @@ main { padding: 0 20px; }
 
     <div class="alien-bloco">
       <div class="alien-img">
-        <img src="alien.jpg" alt="Alien meditando com um baseado na boca e boné com o logo da Cabo Brisa" loading="lazy">
+        <img src="alien.png" data-a="0" onerror="tentarAlien(this)" alt="Alien meditando com um baseado na boca e boné com o logo da Cabo Brisa" loading="lazy">
       </div>
       <div class="alien-txt">
         <h3>Não clique no alien</h3>
@@ -586,7 +638,7 @@ main { padding: 0 20px; }
       <div class="passo">
         <span class="num">01</span>
         <h4>Monte o pedido</h4>
-        <p>Escolha os gramas, ajuste e preencha o endereço completo.</p>
+        <p>Escolha os gramas, calcule o frete pelo CEP e preencha o endereço completo.</p>
       </div>
       <div class="passo">
         <span class="num">02</span>
@@ -596,7 +648,7 @@ main { padding: 0 20px; }
       <div class="passo">
         <span class="num">03</span>
         <h4>Receba com o número</h4>
-        <p>O motorista não espera. Tenha o número do pedido em mãos para conferir na porta.</p>
+        <p>O número do pedido libera a entrega na porta.</p>
       </div>
     </div>
   </section>
@@ -609,11 +661,11 @@ main { padding: 0 20px; }
     <div class="ficha">
       <div>
         <h3>Área de entrega</h3>
-        <p>Cabo Frio e bairros vizinhos. Fora da área é combinado no WhatsApp antes do Pix.</p>
+        <p>Cabo Frio e cidades vizinhas. Fora da área é combinado no WhatsApp antes do Pix.</p>
       </div>
       <div>
         <h3>Horário</h3>
-        <p>Todos os dias, das 18h à meia-noite. Pedido feito depois disso sai no dia seguinte.</p>
+        <p><b>Sem horário fixo.</b> Abre quando o lote chega e fecha quando acaba. O horário do dia é combinado no WhatsApp, na hora do pedido.</p>
       </div>
       <div>
         <h3>Pagamento</h3>
@@ -641,28 +693,37 @@ main { padding: 0 20px; }
 
     <div class="linhas">
       <div class="l"><span>Subtotal</span> <span id="subtotal">R$ 0,00</span></div>
-      <div class="l"><span>Entrega</span> <span id="entrega">R$ 0,00</span></div>
+      <div class="l"><span>Entrega</span> <span id="entrega">a calcular</span></div>
       <div class="l desc" id="linhaDesconto" style="display:none"><span>Desconto</span> <span id="desconto">R$ 0,00</span></div>
       <div class="l total"><span>Total</span> <b id="total">R$ 0,00</b></div>
     </div>
 
+    <div class="frete">
+      <label for="cep">calcular frete pelo CEP</label>
+      <div class="linha-cep">
+        <input type="text" id="cep" placeholder="00000-000" inputmode="numeric" maxlength="9" autocomplete="postal-code" oninput="mascaraCep(this)">
+        <button type="button" onclick="calcularFrete()">calcular</button>
+      </div>
+      <p class="msg" id="msgFrete"></p>
+    </div>
+
     <div class="campos">
-      <input type="text" id="rua" class="campo largo" placeholder="Rua / avenida">
-      <input type="text" id="numero" class="campo" placeholder="Número">
-      <input type="text" id="bairro" class="campo" placeholder="Bairro">
-      <input type="text" id="complemento" class="campo largo" placeholder="Complemento (apto, casa, bloco)">
-      <input type="text" id="referencia" class="campo largo" placeholder="Ponto de referência">
+      <input type="text" id="rua" class="campo largo" placeholder="Rua / avenida" maxlength="80" autocomplete="address-line1">
+      <input type="text" id="numero" class="campo" placeholder="Número" maxlength="10" inputmode="numeric">
+      <input type="text" id="bairro" class="campo" placeholder="Bairro" maxlength="40">
+      <input type="text" id="complemento" class="campo largo" placeholder="Complemento (apto, casa, bloco)" maxlength="50">
+      <input type="text" id="referencia" class="campo largo" placeholder="Ponto de referência" maxlength="60">
     </div>
 
     <div class="extra">
       <label for="cupom">cupom do alien</label>
       <div class="linha-cupom">
-        <input type="text" id="cupom" placeholder="CB-XXXX" maxlength="8">
+        <input type="text" id="cupom" placeholder="CB-XXXX" maxlength="7">
         <button type="button" onclick="aplicarCupom()">aplicar</button>
       </div>
       <label for="indicacao">código de quem te indicou</label>
       <div class="linha-cupom">
-        <input type="text" id="indicacao" placeholder="CB-XXXX" maxlength="8">
+        <input type="text" id="indicacao" placeholder="CB-XXXX" maxlength="7">
         <button type="button" onclick="aplicarIndicacao()">aplicar</button>
       </div>
       <p class="msg" id="msgCupom"></p>
@@ -699,23 +760,24 @@ main { padding: 0 20px; }
 </footer>
 
 <script>
-var CHAVE = 'cabo-brisa-carrinho-4';
+var CHAVE = 'cabo-brisa-carrinho-6';
 var CHAVE_PROMO = 'cb-fim-promo';
 var CHAVE_CUPOM = 'cb-cupom';
 var CHAVE_CUPONS = 'cb-cupons-dados';
 var CHAVE_AVAL = 'cb-avaliacoes';
+var CHAVE_MEU = 'cb-meu-codigo';
 var MINIMO = 20;
-var TAXA = 5;
 var GRATIS_ACIMA = 70;
 var ENTREGADOR = '5521993408072';
+var MEU_WHATS = '5522981551818';
 var CUPOM_VALOR = 5;
 var INDICACAO_VALOR = 2;
 var CUPONS_MAX = 5;
 var DIAS_CUPOM = 60;
 
 var PRODUTOS = {
-  maconha: { nome: 'Maconha', passo: 1, min: 1, precoG: function () { return emPromo() ? 10 : 12; } },
-  cocaina: { nome: 'Coca-Colaína', passo: 0.5, min: 0.5, precoG: function () { return 40; } }
+  maconha: { nome: 'Maconha', min: 1, precoG: function () { return emPromo() ? 10 : 12; } },
+  cocaina: { nome: 'Coca-Colaína', min: 0.5, precoG: function () { return 40; } }
 };
 
 var KITS = {
@@ -723,28 +785,47 @@ var KITS = {
   kit2: { nome: 'Kit Mês', preco: 145, consome: { maconha: 10, cocaina: 1 } }
 };
 
-var ESTOQUE = { maconha: 40, cocaina: 12 };
+/* estoque real: 8 g de maconha, 0 de cocaína */
+var ESTOQUE = { maconha: 8, cocaina: 0 };
 
 var cart = [];
 var codigoAtual = '';
 var enderecoAtual = '';
 var notaAtual = 0;
-var desconto = 0;
+var descontoCupom = 0;
+var descontoIndicacao = 0;
+var codigoIndicador = '';
+var frete = null;
+var zonaFrete = '';
 
-try {
-  var salvo = JSON.parse(localStorage.getItem(CHAVE) || '[]');
-  if (Array.isArray(salvo)) cart = salvo;
-} catch (e) { cart = []; }
+function ler(chave, padrao) {
+  try {
+    var v = JSON.parse(localStorage.getItem(chave) || 'null');
+    return v === null ? padrao : v;
+  } catch (e) { return padrao; }
+}
+
+function gravar(chave, valor) {
+  try { localStorage.setItem(chave, JSON.stringify(valor)); } catch (e) {}
+}
+
+function esc(t) {
+  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+var salvo = ler(CHAVE, []);
+if (Array.isArray(salvo)) cart = salvo;
+
+function descontoTotal() { return descontoCupom + descontoIndicacao; }
 
 /* ---------- promoção ---------- */
 function fimPromo() {
-  var s = localStorage.getItem(CHAVE_PROMO);
+  var s = parseInt(localStorage.getItem(CHAVE_PROMO) || '0', 10);
   if (!s) {
-    var t = Date.now() + 14 * 86400000;
-    try { localStorage.setItem(CHAVE_PROMO, String(t)); } catch (e) {}
-    return t;
+    s = Date.now() + 14 * 86400000;
+    try { localStorage.setItem(CHAVE_PROMO, String(s)); } catch (e) {}
   }
-  return parseInt(s, 10);
+  return s;
 }
 
 function emPromo() { return Date.now() < fimPromo(); }
@@ -759,10 +840,10 @@ function consumo() {
   var c = { maconha: 0, cocaina: 0 };
   for (var i = 0; i < cart.length; i++) {
     var it = cart[i];
-    if (it.kit) {
+    if (it.kit && KITS[it.kit]) {
       c.maconha += KITS[it.kit].consome.maconha;
       c.cocaina += KITS[it.kit].consome.cocaina;
-    } else {
+    } else if (PRODUTOS[it.id]) {
       c[it.id] += it.g;
     }
   }
@@ -771,10 +852,16 @@ function consumo() {
 
 function disponivel(id) { return Math.max(0, ESTOQUE[id] - consumo()[id]); }
 
+function kitPossivel(chave) {
+  var k = KITS[chave];
+  var c = consumo();
+  return c.maconha + k.consome.maconha <= ESTOQUE.maconha && c.cocaina + k.consome.cocaina <= ESTOQUE.cocaina;
+}
+
 /* ---------- gramas ---------- */
 function passo(id, delta) {
   var campo = document.getElementById('g-' + id);
-  var atual = parseFloat(campo.value) || PRODUTOS[id].min;
+  var atual = parseFloat(campo.value) || 0;
   definir(id, atual + delta);
 }
 
@@ -784,6 +871,13 @@ function definir(id, valor) {
   var campo = document.getElementById('g-' + id);
   var aviso = document.getElementById('aviso-' + id);
   var max = disponivel(id);
+
+  if (max <= 0) {
+    campo.value = '0';
+    aviso.textContent = 'sem estoque';
+    atualizarCard(id);
+    return;
+  }
 
   if (isNaN(valor)) valor = PRODUTOS[id].min;
   if (valor < PRODUTOS[id].min) valor = PRODUTOS[id].min;
@@ -800,18 +894,32 @@ function definir(id, valor) {
 }
 
 function atualizarCard(id) {
-  var g = parseFloat(document.getElementById('g-' + id).value) || 0;
-  document.getElementById('item-' + id).textContent = formatar(g * PRODUTOS[id].precoG());
-  document.getElementById('estoque-' + id).textContent = 'restam ' + numero(disponivel(id)) + ' g';
+  var campo = document.getElementById('g-' + id);
+  var g = parseFloat(campo.value) || 0;
+  var disp = disponivel(id);
+  var tag = document.getElementById('estoque-' + id);
+  var botao = document.getElementById('add-' + id);
+  var btns = document.getElementById('gramas-' + id).querySelectorAll('button');
+
+  tag.textContent = disp > 0 ? 'restam ' + numero(disp) + ' g' : 'esgotado';
+  tag.className = disp > 0 ? 'estoque-tag' : 'estoque-tag zero';
+
+  campo.disabled = disp <= 0;
+  for (var i = 0; i < btns.length; i++) btns[i].disabled = disp <= 0;
+
+  botao.disabled = disp <= 0;
+  botao.textContent = disp <= 0 ? 'esgotado' : 'Adicionar';
+
+  document.getElementById('item-' + id).textContent = disp <= 0 ? '—' : formatar(g * PRODUTOS[id].precoG());
 }
 
 function numero(v) { return String(v).replace('.', ','); }
 
 function add(id) {
-  var g = parseFloat(document.getElementById('g-' + id).value) || PRODUTOS[id].min;
   var max = disponivel(id);
-
   if (max <= 0) { alert('Sem estoque de ' + PRODUTOS[id].nome + ' agora.'); return; }
+
+  var g = parseFloat(document.getElementById('g-' + id).value) || PRODUTOS[id].min;
   if (g > max) g = max;
 
   var achou = null;
@@ -819,7 +927,7 @@ function add(id) {
     if (!cart[i].kit && cart[i].id === id) { achou = cart[i]; break; }
   }
 
-  if (achou) achou.g = Math.min(achou.g + g, achou.g + max);
+  if (achou) achou.g += g;
   else cart.push({ id: id, g: g });
 
   document.getElementById('g-' + id).value = numero(PRODUTOS[id].min);
@@ -829,14 +937,10 @@ function add(id) {
 }
 
 function addKit(chave) {
-  var k = KITS[chave];
-  var c = consumo();
-
-  if (c.maconha + k.consome.maconha > ESTOQUE.maconha || c.cocaina + k.consome.cocaina > ESTOQUE.cocaina) {
+  if (!kitPossivel(chave)) {
     alert('Estoque insuficiente para esse kit agora.');
     return;
   }
-
   cart.push({ kit: chave });
   persistir();
   abrir();
@@ -847,14 +951,50 @@ function remover(i) { cart.splice(i, 1); persistir(); }
 function limpar() {
   cart = [];
   codigoAtual = '';
-  desconto = 0;
+  descontoCupom = 0;
+  descontoIndicacao = 0;
+  frete = null;
+  zonaFrete = '';
   document.getElementById('confirmacao').classList.remove('mostrar');
   document.getElementById('msgCupom').textContent = '';
+  document.getElementById('msgFrete').textContent = '';
+  document.getElementById('cep').value = '';
+  document.getElementById('cupom').value = '';
+  document.getElementById('indicacao').value = '';
   persistir();
 }
 
 function persistir() {
-  try { localStorage.setItem(CHAVE, JSON.stringify(cart)); } catch (e) {}
+  gravar(CHAVE, cart);
+  render();
+}
+
+/* ---------- frete ---------- */
+function mascaraCep(el) {
+  var v = el.value.replace(/\D/g, '').slice(0, 8);
+  el.value = v.length > 5 ? v.slice(0, 5) + '-' + v.slice(5) : v;
+}
+
+function calcularFrete() {
+  var campo = document.getElementById('cep');
+  var msg = document.getElementById('msgFrete');
+  var cep = campo.value.replace(/\D/g, '');
+
+  if (cep.length !== 8) { msg.textContent = 'Digite o CEP completo, com 8 dígitos.'; return; }
+
+  var p = parseInt(cep.slice(0, 5), 10);
+
+  if (p >= 28900 && p <= 28919) { zonaFrete = 'Cabo Frio'; frete = 5; }
+  else if (p === 28930) { zonaFrete = 'Arraial do Cabo'; frete = 12; }
+  else if (p === 28940) { zonaFrete = 'São Pedro da Aldeia'; frete = 12; }
+  else if (p === 28950) { zonaFrete = 'Armação dos Búzios'; frete = 12; }
+  else if (p === 28960) { zonaFrete = 'Iguaba Grande'; frete = 12; }
+  else { zonaFrete = 'fora da área'; frete = 15; }
+
+  msg.textContent = zonaFrete === 'fora da área'
+    ? 'Fora da área: R$ 15, a combinar no WhatsApp.'
+    : 'Entrega em ' + zonaFrete + ': ' + formatar(frete) + '.';
+
   render();
 }
 
@@ -868,20 +1008,20 @@ function render() {
     var it = cart[i];
     var nome, detalhe, preco;
 
-    if (it.kit) {
+    if (it.kit && KITS[it.kit]) {
       nome = KITS[it.kit].nome;
       detalhe = 'kit fechado';
       preco = KITS[it.kit].preco;
-    } else {
+    } else if (PRODUTOS[it.id]) {
       nome = PRODUTOS[it.id].nome;
       detalhe = numero(it.g) + ' g';
       preco = it.g * PRODUTOS[it.id].precoG();
-    }
+    } else { continue; }
 
     subtotal += preco;
 
     html += '<div class="item">'
-      + '<span class="item-nome">' + nome + '<small>' + detalhe + '</small></span>'
+      + '<span class="item-nome">' + esc(nome) + '<small>' + esc(detalhe) + '</small></span>'
       + '<span class="item-preco">' + formatar(preco) + '</span>'
       + '<button class="remover" onclick="remover(' + i + ')" aria-label="Remover">✕</button>'
       + '</div>';
@@ -889,16 +1029,27 @@ function render() {
 
   lista.innerHTML = html || '<p class="vazio">Nada por aqui ainda.<span>Escolha no cardápio.</span></p>';
 
-  var taxa = subtotal >= GRATIS_ACIMA ? 0 : (subtotal > 0 ? TAXA : 0);
-  if (desconto > subtotal) desconto = subtotal;
-  var total = Math.max(0, subtotal + taxa - desconto);
+  var gratis = subtotal >= GRATIS_ACIMA;
+  var taxa;
+
+  if (!cart.length) taxa = 0;
+  else if (gratis) taxa = 0;
+  else if (frete === null) taxa = null;
+  else taxa = frete;
+
+  var desc = Math.min(descontoTotal(), subtotal);
+  var total = Math.max(0, subtotal + (taxa || 0) - desc);
 
   document.getElementById('subtotal').innerHTML = formatar(subtotal);
-  document.getElementById('entrega').innerHTML =
-    taxa === 0 && subtotal > 0 ? '<span class="gratis">Grátis</span>' : formatar(taxa);
 
-  document.getElementById('linhaDesconto').style.display = desconto > 0 ? 'flex' : 'none';
-  document.getElementById('desconto').innerHTML = '- ' + formatar(desconto);
+  var campoEntrega = document.getElementById('entrega');
+  if (!cart.length) campoEntrega.innerHTML = formatar(0);
+  else if (gratis) campoEntrega.innerHTML = '<span class="gratis">Grátis</span>';
+  else if (taxa === null) campoEntrega.innerHTML = '<span class="calculando">a calcular</span>';
+  else campoEntrega.innerHTML = formatar(taxa);
+
+  document.getElementById('linhaDesconto').style.display = desc > 0 ? 'flex' : 'none';
+  document.getElementById('desconto').innerHTML = '- ' + formatar(desc);
   document.getElementById('total').innerHTML = formatar(total);
 
   document.getElementById('resumo').innerHTML = subtotal > 0
@@ -907,6 +1058,9 @@ function render() {
 
   atualizarCard('maconha');
   atualizarCard('cocaina');
+
+  document.getElementById('kit-kit1').disabled = !kitPossivel('kit1');
+  document.getElementById('kit-kit2').disabled = !kitPossivel('kit2');
 }
 
 function formatar(v) { return 'R$ ' + v.toFixed(2).replace('.', ','); }
@@ -931,9 +1085,7 @@ function pegarCupom() {
   var caixa = document.getElementById('cupomCaixa');
   var cod = document.getElementById('cupomCod');
   var val = document.getElementById('cupomVal');
-  var existente = null;
-
-  try { existente = JSON.parse(localStorage.getItem(CHAVE_CUPOM) || 'null'); } catch (e) {}
+  var existente = ler(CHAVE_CUPOM, null);
 
   if (existente && existente.codigo) {
     caixa.classList.add('mostrar');
@@ -942,7 +1094,7 @@ function pegarCupom() {
     return;
   }
 
-  var dados = JSON.parse(localStorage.getItem(CHAVE_CUPONS) || '{"usados":0}');
+  var dados = ler(CHAVE_CUPONS, { usados: 0 });
 
   if (dados.usados >= CUPONS_MAX) {
     caixa.classList.add('mostrar');
@@ -951,48 +1103,98 @@ function pegarCupom() {
     return;
   }
 
-  var letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  var codigo = 'CB-';
-  for (var i = 0; i < 4; i++) codigo += letras.charAt(Math.floor(Math.random() * letras.length));
-
+  var codigo = sortear();
   var validade = Date.now() + DIAS_CUPOM * 86400000;
-  try {
-    localStorage.setItem(CHAVE_CUPOM, JSON.stringify({ codigo: codigo, validade: validade }));
-    localStorage.setItem(CHAVE_CUPONS, JSON.stringify({ usados: dados.usados + 1 }));
-  } catch (e) {}
+
+  gravar(CHAVE_CUPOM, { codigo: codigo, validade: validade });
+  gravar(CHAVE_CUPONS, { usados: dados.usados + 1 });
 
   caixa.classList.add('mostrar');
   cod.textContent = codigo;
   val.textContent = 'R$ 5 de desconto · válido até ' + dataCurta(validade);
 }
 
+function sortear() {
+  var letras = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var c = 'CB-';
+  for (var i = 0; i < 4; i++) c += letras.charAt(Math.floor(Math.random() * letras.length));
+  return c;
+}
+
 function aplicarCupom() {
   var campo = document.getElementById('cupom');
   var msg = document.getElementById('msgCupom');
-  var salvo = null;
-  try { salvo = JSON.parse(localStorage.getItem(CHAVE_CUPOM) || 'null'); } catch (e) {}
-
+  var salvoCupom = ler(CHAVE_CUPOM, null);
   var digitado = (campo.value || '').trim().toUpperCase();
 
-  if (!salvo || !salvo.codigo) { msg.textContent = 'Você ainda não pegou cupom. Clique no alien.'; return; }
-  if (digitado !== salvo.codigo) { msg.textContent = 'Cupom não confere.'; return; }
-  if (Date.now() > salvo.validade) { msg.textContent = 'Cupom vencido.'; return; }
+  if (!salvoCupom || !salvoCupom.codigo) { msg.textContent = 'Você ainda não pegou cupom. Clique no alien.'; return; }
+  if (digitado !== salvoCupom.codigo) { msg.textContent = 'Cupom não confere.'; return; }
+  if (Date.now() > salvoCupom.validade) { msg.textContent = 'Cupom vencido.'; return; }
+  if (descontoCupom > 0) { msg.textContent = 'Você já usou o cupom do alien.'; return; }
 
-  desconto = CUPOM_VALOR;
+  descontoCupom = CUPOM_VALOR;
+  campo.value = salvoCupom.codigo;
   msg.textContent = 'Cupom aplicado: R$ 5 de desconto.';
   persistir();
 }
 
-function aplicarIndicacao() {
+/* ---------- indicação ---------- */
+function meuCodigo() {
+  var c = localStorage.getItem(CHAVE_MEU);
+  if (c && /^CB-[A-Z0-9]{4}$/.test(c)) return c;
+  c = sortear();
+  try { localStorage.setItem(CHAVE_MEU, c); } catch (e) {}
+  return c;
+}
+
+function linkIndicacao() {
+  return location.origin + location.pathname + '?ind=' + meuCodigo();
+}
+
+function aplicarIndicacao(silencioso) {
   var campo = document.getElementById('indicacao');
   var msg = document.getElementById('msgCupom');
   var valor = (campo.value || '').trim().toUpperCase();
 
-  if (!/^CB-[A-Z0-9]{4}$/.test(valor)) { msg.textContent = 'Código de indicação inválido.'; return; }
+  if (!/^CB-[A-Z0-9]{4}$/.test(valor)) {
+    if (!silencioso) msg.textContent = 'Código de indicação inválido. Formato CB-XXXX.';
+    return false;
+  }
+  if (valor === meuCodigo()) {
+    if (!silencioso) msg.textContent = 'Esse é o seu próprio código, não vale como indicação.';
+    return false;
+  }
+  if (descontoIndicacao > 0) {
+    if (!silencioso) msg.textContent = 'Indicação já aplicada.';
+    return false;
+  }
 
-  desconto = (desconto === CUPOM_VALOR ? CUPOM_VALOR : 0) + INDICACAO_VALOR;
-  msg.textContent = 'Indicação aplicada: R$ 2 de desconto.';
+  descontoIndicacao = INDICACAO_VALOR;
+  codigoIndicador = valor;
+  campo.value = valor;
+  msg.textContent = 'Indicação ' + valor + ' aplicada: R$ 2 de desconto.';
   persistir();
+  return true;
+}
+
+function copiarLink() {
+  var link = linkIndicacao();
+  var msg = document.getElementById('msgInd');
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(link).then(function () {
+      msg.textContent = 'Link copiado.';
+    }).catch(function () {
+      msg.textContent = link;
+    });
+  } else {
+    msg.textContent = link;
+  }
+}
+
+function compartilhar() {
+  var texto = 'Pega aí na Cabo Brisa, entrega na porta em Cabo Frio. Usa meu código ' + meuCodigo() + ' e ganha R$ 2 de desconto: ' + linkIndicacao();
+  window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
 }
 
 /* ---------- avaliações ---------- */
@@ -1008,12 +1210,12 @@ function enviarAval() {
   if (!notaAtual) { alert('Escolha uma nota de 1 a 5 estrelas.'); return; }
   if (texto.length < 3) { alert('Escreva um comentário.'); return; }
 
-  var lista = [];
-  try { lista = JSON.parse(localStorage.getItem(CHAVE_AVAL) || '[]'); } catch (e) { lista = []; }
+  var lista = ler(CHAVE_AVAL, []);
+  if (!Array.isArray(lista)) lista = [];
 
   lista.unshift({ n: notaAtual, t: texto, d: Date.now() });
 
-  try { localStorage.setItem(CHAVE_AVAL, JSON.stringify(lista.slice(0, 40))); } catch (e) {}
+  gravar(CHAVE_AVAL, lista.slice(0, 40));
 
   notaAtual = 0;
   nota(0);
@@ -1023,8 +1225,8 @@ function enviarAval() {
 
 function mostrarAval() {
   var alvo = document.getElementById('listaAval');
-  var lista = [];
-  try { lista = JSON.parse(localStorage.getItem(CHAVE_AVAL) || '[]'); } catch (e) { lista = []; }
+  var lista = ler(CHAVE_AVAL, []);
+  if (!Array.isArray(lista)) lista = [];
 
   if (!lista.length) {
     alvo.innerHTML = '<p class="aval-vazio">Nenhuma avaliação ainda. Seja o primeiro.</p>';
@@ -1037,7 +1239,7 @@ function mostrarAval() {
     for (var j = 0; j < 5; j++) estrelas += j < lista[i].n ? '★' : '☆';
     html += '<div class="aval-item">'
       + '<div class="quem"><b>anônimo</b> · <span class="estrelinhas">' + estrelas + '</span> · ' + dataCurta(lista[i].d) + '</div>'
-      + '<p>' + lista[i].t.replace(/</g, '&lt;') + '</p>'
+      + '<p>' + esc(lista[i].t) + '</p>'
       + '</div>';
   }
   alvo.innerHTML = html;
@@ -1059,11 +1261,20 @@ function finalizar() {
   var subtotal = 0;
   for (var i = 0; i < cart.length; i++) {
     var it = cart[i];
-    subtotal += it.kit ? KITS[it.kit].preco : it.g * PRODUTOS[it.id].precoG();
+    if (it.kit && KITS[it.kit]) subtotal += KITS[it.kit].preco;
+    else if (PRODUTOS[it.id]) subtotal += it.g * PRODUTOS[it.id].precoG();
   }
 
   if (subtotal < MINIMO) {
     alert('O pedido mínimo é de ' + formatar(MINIMO) + '. Faltam ' + formatar(MINIMO - subtotal) + '.');
+    return;
+  }
+
+  var gratis = subtotal >= GRATIS_ACIMA;
+
+  if (!gratis && frete === null) {
+    alert('Calcule o frete pelo CEP antes de enviar.');
+    document.getElementById('cep').focus();
     return;
   }
 
@@ -1087,30 +1298,31 @@ function finalizar() {
   if (referencia) endereco += ' · ref.: ' + referencia;
   enderecoAtual = endereco;
 
-  var taxa = subtotal >= GRATIS_ACIMA ? 0 : TAXA;
-  if (desconto > subtotal) desconto = subtotal;
-  var total = Math.max(0, subtotal + taxa - desconto);
+  var taxa = gratis ? 0 : frete;
+  var desc = Math.min(descontoTotal(), subtotal);
+  var total = Math.max(0, subtotal + taxa - desc);
 
   var msg = 'Olá! Quero fazer um pedido na Cabo Brisa:\n\n';
   for (var j = 0; j < cart.length; j++) {
     var it2 = cart[j];
-    msg += it2.kit
-      ? '• ' + KITS[it2.kit].nome + ' — ' + formatar(KITS[it2.kit].preco) + '\n'
-      : '• ' + numero(it2.g) + ' g de ' + PRODUTOS[it2.id].nome + ' — ' + formatar(it2.g * PRODUTOS[it2.id].precoG()) + '\n';
+    if (it2.kit && KITS[it2.kit]) msg += '• ' + KITS[it2.kit].nome + ' — ' + formatar(KITS[it2.kit].preco) + '\n';
+    else if (PRODUTOS[it2.id]) msg += '• ' + numero(it2.g) + ' g de ' + PRODUTOS[it2.id].nome + ' — ' + formatar(it2.g * PRODUTOS[it2.id].precoG()) + '\n';
   }
 
   msg += '\nSubtotal: ' + formatar(subtotal);
-  msg += '\nEntrega: ' + (taxa === 0 ? 'grátis' : formatar(taxa));
-  if (desconto > 0) msg += '\nDesconto: - ' + formatar(desconto);
+  msg += '\nEntrega: ' + (gratis ? 'grátis' : formatar(taxa) + ' (' + zonaFrete + ')');
+  if (desc > 0) msg += '\nDesconto: - ' + formatar(desc);
   msg += '\nTotal: ' + formatar(total);
-  msg += '\n\nEndereço: ' + endereco;
+  if (codigoIndicador) msg += '\nIndicado por: ' + codigoIndicador;
+  msg += '\n\nCEP: ' + document.getElementById('cep').value;
+  msg += '\nEndereço: ' + endereco;
   msg += '\n\nNúmero do pedido: ' + codigoAtual;
   msg += '\n\nPago no Pix, envio o comprovante.';
 
   document.getElementById('codigo').textContent = codigoAtual;
   document.getElementById('confirmacao').classList.add('mostrar');
 
-  window.open('https://wa.me/5522981551818?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/' + MEU_WHATS + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function avisarEntregador() {
@@ -1126,22 +1338,43 @@ function tentarExt(img) {
   if (n < fila.length) img.src = fila[n];
 }
 
+function tentarAlien(img) {
+  var fila = ['alien.png', 'boneco.png', 'alien.jpg', 'alien.webp', 'alien.PNG'];
+  var n = parseInt(img.getAttribute('data-a') || '0', 10) + 1;
+  img.setAttribute('data-a', n);
+  if (n < fila.length) img.src = fila[n];
+}
+
+function tentarBoneco(img) {
+  var fila = ['boneco.png', 'boneco.jpg', 'boneco.webp', 'alien.png', 'alien.jpg'];
+  var n = parseInt(img.getAttribute('data-b') || '0', 10) + 1;
+  img.setAttribute('data-b', n);
+  if (n < fila.length) img.src = fila[n];
+}
+
 /* ---------- início ---------- */
 if (emPromo()) {
   document.getElementById('faixaPromo').textContent =
-    'promoção de inauguração: R$ 10 o grama só até ' + dataCurta(fimPromo());
+    'pedido mínimo R$ 20 · entrega R$ 5 em Cabo Frio · grátis acima de R$ 70 · promo R$ 10/g até ' + dataCurta(fimPromo());
 } else {
-  document.getElementById('faixaPromo').textContent = 'preço oficial: R$ 12 o grama · entrega na porta';
+  document.getElementById('faixaPromo').textContent =
+    'pedido mínimo R$ 20 · entrega R$ 5 em Cabo Frio · grátis acima de R$ 70 · R$ 12/g';
   document.getElementById('antigo-maconha').style.display = 'none';
+  document.getElementById('tagPromo').style.display = 'none';
 }
 
 document.getElementById('preco-maconha').textContent = 'R$ ' + (emPromo() ? 10 : 12);
-document.getElementById('item-maconha').textContent = formatar(PRODUTOS.maconha.precoG());
-document.getElementById('item-cocaina').textContent = formatar(0.5 * 40);
+document.getElementById('meuCod').textContent = meuCodigo();
+
+if (ESTOQUE.cocaina <= 0) {
+  document.getElementById('notaKits').textContent = 'Kits voltam quando a cocaína chegar. Por enquanto, só maconha no cardápio.';
+}
+
+var daUrl = new URLSearchParams(location.search).get('ind');
+if (daUrl && /^CB-[A-Z0-9]{4}$/i.test(daUrl)) {
+  document.getElementById('indicacao').value = daUrl.toUpperCase();
+  aplicarIndicacao(true);
+}
 
 render();
 mostrarAval();
-</script>
-
-</body>
-</html>
